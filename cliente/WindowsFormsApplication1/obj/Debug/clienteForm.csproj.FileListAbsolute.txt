@@ -141,3 +141,44 @@ D:\2\2A\SO\entregas\entregas\v1\clienteEjercicioGuia\WindowsFormsApplication1\ob
 D:\2\2A\SO\entregas\entregas\v1\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.CoreCompileInputs.cache
 D:\2\2A\SO\entregas\entregas\v1\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 D:\2\2A\SO\entregas\entregas\v1\clienteEjercicioGuia\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\SO\ProyectoGrupo\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\SO\ProyectoGrupo\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\SO\ProyectoGrupo\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\SO\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.AssemblyReference.cache
+C:\SO\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\SO\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\SO\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.GenerateResource.cache
+C:\SO\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.CoreCompileInputs.cache
+C:\SO\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\SO\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\SO\share\ProyectoGrupo\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\SO\share\ProyectoGrupo\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\SO\share\ProyectoGrupo\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\SO\share\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.AssemblyReference.cache
+C:\SO\share\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\SO\share\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\SO\share\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.GenerateResource.cache
+C:\SO\share\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.CoreCompileInputs.cache
+C:\SO\share\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\SO\share\ProyectoGrupo\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\SO\share\ProyectoGrupo - copia (2)\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\SO\share\ProyectoGrupo - copia (2)\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\SO\share\ProyectoGrupo - copia (2)\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\SO\share\ProyectoGrupo - copia (2)\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.AssemblyReference.cache
+C:\SO\share\ProyectoGrupo - copia (2)\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\SO\share\ProyectoGrupo - copia (2)\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\SO\share\ProyectoGrupo - copia (2)\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.GenerateResource.cache
+C:\SO\share\ProyectoGrupo - copia (2)\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.CoreCompileInputs.cache
+C:\SO\share\ProyectoGrupo - copia (2)\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\SO\share\ProyectoGrupo - copia (2)\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\roger\OneDrive\Escriptori\Escola\Universitat\3.1\Sistemes Operatius\ProyectoGrupo\Projecte 2\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\roger\OneDrive\Escriptori\Escola\Universitat\3.1\Sistemes Operatius\ProyectoGrupo\Projecte 2\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\roger\OneDrive\Escriptori\Escola\Universitat\3.1\Sistemes Operatius\ProyectoGrupo\Projecte 2\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\roger\OneDrive\Escriptori\Escola\Universitat\3.1\Sistemes Operatius\ProyectoGrupo\Projecte 2\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.AssemblyReference.cache
+C:\Users\roger\OneDrive\Escriptori\Escola\Universitat\3.1\Sistemes Operatius\ProyectoGrupo\Projecte 2\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\roger\OneDrive\Escriptori\Escola\Universitat\3.1\Sistemes Operatius\ProyectoGrupo\Projecte 2\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form2.resources
+C:\Users\roger\OneDrive\Escriptori\Escola\Universitat\3.1\Sistemes Operatius\ProyectoGrupo\Projecte 2\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\roger\OneDrive\Escriptori\Escola\Universitat\3.1\Sistemes Operatius\ProyectoGrupo\Projecte 2\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.GenerateResource.cache
+C:\Users\roger\OneDrive\Escriptori\Escola\Universitat\3.1\Sistemes Operatius\ProyectoGrupo\Projecte 2\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.CoreCompileInputs.cache
+C:\Users\roger\OneDrive\Escriptori\Escola\Universitat\3.1\Sistemes Operatius\ProyectoGrupo\Projecte 2\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\roger\OneDrive\Escriptori\Escola\Universitat\3.1\Sistemes Operatius\ProyectoGrupo\Projecte 2\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
