@@ -8,56 +8,51 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.Web;
+using System.Threading;
 
 namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
         Socket server;
-        DataTable dt;
-        public Form1()
+        DataTable dt = new DataTable();
+        Thread atender;
+        string nickname;
+        string password;
+
+        public Form1(string nickname, string password, Socket server)
         {
+            this.nickname = nickname;
+            this.password = password;
+            this.server = server;
             InitializeComponent();
         }
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            dt = new DataTable();
             dt.Columns.Add("Conectados");
             ListaConectados.DataSource = dt;
-
-        }
-
-        private void button_Conectar_Click(object sender, EventArgs e) // BOTON CONECTAR
-        {
-            ////Creamos un IPEndPoint con el ip del servidor y puerto del servidor al que deseamos conectarnos
-            IPAddress direc = IPAddress.Parse("192.168.56.102");
-            IPEndPoint ipep = new IPEndPoint(direc, 9010);
-
-
-            //Creamos el socket 
-            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            try
+            ListaConectados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            ListaConectados.ReadOnly = false;
+            //ThreadStart ts = delegate { AtenderServidor(); };
+            //atender = new Thread(ts);
+            //atender.Start();
+            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
             {
-                server.Connect(ipep);//Intentamos conectar el socket
-                this.BackColor = Color.Green;
-                MessageBox.Show("Conectado");
-            }
-            catch (SocketException)
-            {
-                //Si hay excepcion imprimimos error y salimos del programa con return 
-                MessageBox.Show("No he podido conectar con el servidor");
-                return;
-            }
+                Name = "Seleccionar",
+                HeaderText = "Invitar"
+            };
+            ListaConectados.Columns.Add(checkBoxColumn);
         }
 
         private void button_Desconectar_Click(object sender, EventArgs e) // CONSULTA 0 : BOTON DESCONECTAR
         {
             //Mensaje de desconexion
-            string mensaje = "0/";
-            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            string mensaje = "0/" + nickname;
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
             server.Send(msg);
-
+            //atender.Abort();
 
 
             // Nos desconectamos
@@ -65,90 +60,13 @@ namespace WindowsFormsApplication1
             MessageBox.Show("Desconectado");
             server.Shutdown(SocketShutdown.Both);
             server.Close();
+            Close();
         }
-
-      
-        private void button_LogIn_Click(object sender, EventArgs e) // CONSULTA 1 : BOTON LOG IN
-        {
-            string mensaje = "1/" + nickname.Text + "/" + password.Text; // Guarda los datos en un string con el codigo
-            // Enviamos al servidor el nombre tecleado
-            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
-
-            //Recibimos la respuesta del servidor                    
-            byte[] msg2 = new byte[80];
-            server.Receive(msg2);
-            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-
-            if (mensaje == "SI")
-            {
-                MessageBox.Show("Bienvenido/a " + nickname.Text + ". Has iniciado sesión correctamente.");
-            }
-            else if (mensaje == "NO_USER")
-            {
-                MessageBox.Show("No estás registrado. Para registrarte, rellena los campos y presiona 'Registrar'.");
-            }
-            else if (mensaje == "WRONG_PASSWORD")
-            {
-                MessageBox.Show("Contraseña incorrecta. Por favor, inténtalo de nuevo.");
-            }
-            else
-            {
-                MessageBox.Show("Error desconocido. Por favor, intenta de nuevo más tarde.");
-            }
-
-        }
-
-        private void button_Registro_Click(object sender, EventArgs e) // CONSULTA 2 : BOTON REGISTRARSE
-        {
-            string mensaje;
-            // Validamos que el nickname y la contraseña tengan más de 3 caracteres
-            if ((password.Text.Length > 3) && (nickname.Text.Length > 3))
-            {
-                // Verificamos que la confirmación de la contraseña coincida con la contraseña 
-                if (password.Text == password_conf.Text)
-                {
-                    // Guarda los datos en un string con el codigo para enviarlo al servidor
-                    mensaje = "2/" + nickname.Text + "/" + password.Text;
-
-                    // Enviamos al servidor el nombre tecleado
-                    byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-                    server.Send(msg);
-
-                    //Recibimos la respuesta del servidor                    
-                    byte[] msg2 = new byte[80];
-                    server.Receive(msg2);
-                    mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-
-                    if (mensaje == "0")
-                    {
-                        MessageBox.Show("Bienvenido/a " + nickname.Text + ". Te has registrado correctamente.");
-                    }
-                    else if (mensaje == "-1")
-                    {
-                        MessageBox.Show("Fallo al registrar, intentelo de nuevo.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error desconocido. Por favor, inténtelo más tarde.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("La contraseña de confirmación no coincide.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("El nombre de usuario y la contraseña deben tener más de 3 caracteres.");
-            }
-        }
-
         private void ListaCon_Click(object sender, EventArgs e) // CONSULTA 3 : LISTA CONECTADOS
         {
             
             string mensaje = "3/";
-            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
             server.Send(msg);
 
             //Recibimos la respuesta del servidor                    
@@ -175,11 +93,11 @@ namespace WindowsFormsApplication1
         {
 
 
-            if (DimeJugadores.Checked) // CONSUTLA 5 : JUGADORES QUE JUGARON EL DIA INTRODUCIDO PORO TECLADO
+            if (DimeJugadores.Checked) // CONSUTLA 10 : JUGADORES QUE JUGARON EL DIA INTRODUCIDO PORO TECLADO
             {
-                string mensaje = "5/" + ConsultaFecha.Text;
+                string mensaje = "10/" + ConsultaFecha;
                 // Enviamos al servidor el nombre tecleado
-                byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
                 server.Send(msg);
                 MessageBox.Show(mensaje);
                 
@@ -195,12 +113,12 @@ namespace WindowsFormsApplication1
                     MessageBox.Show("Los jugadores que jugaron ese día son:" + mensaje);
 
             }
-            if (DimeGanadores.Checked)  // CONSULTA 6 : JUGADORES QUE GANARON EL DIA INTRODUCIDO PORO TECLADO
+            if (DimeGanadores.Checked)  // CONSULTA 11 : JUGADORES QUE GANARON EL DIA INTRODUCIDO PORO TECLADO
             {
 
-                string mensaje = "6/" + ConsultaFecha.Text;
+                string mensaje = "11/" + ConsultaFecha.Text;
                 //Enviamos consulta al servidor 
-                byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
                 server.Send(msg);
 
                 // Recibimos la respuesta del servidor
@@ -214,12 +132,12 @@ namespace WindowsFormsApplication1
                     MessageBox.Show("Los jugadores que ganaron ese día son:" + mensaje);
 
             }
-            if (SumaDuracion.Checked) // CONSULTA 7 : Duracion total partidas de un jugador , introduciendo su nombre por teclado
+            if (SumaDuracion.Checked) // CONSULTA 12 : Duracion total partidas de un jugador , introduciendo su nombre por teclado
             {
                
-                string mensaje = "7/" + ConsultaNombre.Text;
+                string mensaje = "12/" + ConsultaNombre.Text;
                 // Enviamos al servidor el nombre tecleado
-                byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
                 server.Send(msg);
 
                 //Recibimos la respuesta del servidor                    
@@ -241,5 +159,145 @@ namespace WindowsFormsApplication1
             Form2 f2 = new Form2();
             f2.ShowDialog();
         }
+
+        private void Log_Out_Click(object sender, EventArgs e)
+        {
+            string mensaje = "4/" + nickname + "/" + password;
+            //Enviamos consulta al servidor 
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            // Recibimos la respuesta del servidor
+            byte[] msg2 = new byte[80];
+            server.Receive(msg2);
+            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+
+            if (mensaje == "ERROR_DB")
+                MessageBox.Show("No se puede dar de baja");
+            else if (mensaje == "DELETED_SUCCESSFUL")
+            {
+                MessageBox.Show("Usuario dado de baja correctamente");
+            }
+        }
+
+        private void button_Baja_Click(object sender, EventArgs e)
+        {
+            string mensaje = "5/" + nickname + "/" + password; 
+            //Enviamos consulta al servidor 
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            // Recibimos la respuesta del servidor
+            byte[] msg2 = new byte[80];
+            server.Receive(msg2);
+            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+
+            if (mensaje == "ERROR_DB")
+                MessageBox.Show("No se puede dar de baja");
+            else if(mensaje == "DELETED_SUCCESSFUL")
+            {
+                MessageBox.Show("Usuario dado de baja correctamente");
+            }
+
+        }
+
+        
+        private void AtenderServidor()
+        {
+            while (true)
+            {
+                byte[] msg2 = new byte[80];
+                server.Receive(msg2);
+                string[] trozos = Encoding.ASCII.GetString(msg2).Split('/');
+                int codigo = Convert.ToInt32(trozos[0]);
+                string mensaje;
+
+            }
+        }
+        
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                string mensaje = "0/" + nickname;
+                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                server.Send(msg);
+                //atender.Abort();
+            }
+            catch { }
+        }
+//Invitar
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int invitados = 0;
+            string dest = "";
+            string dest2 = "";
+            string dest3 = "";
+            string reg;
+
+            foreach (DataGridViewRow row in ListaConectados.Rows)
+            {
+                if (row.Cells["Seleccionar"].Value != null && Convert.ToBoolean(row.Cells["Seleccionar"].Value))
+                {
+                    invitados++;
+                }
+            }
+
+            if (invitados > 3)
+            {
+                MessageBox.Show("Máximo 4 invitaciones");
+                return;
+            }
+
+            foreach (DataGridViewRow row in ListaConectados.Rows)
+            {
+                if (row.Cells["Seleccionar"].Value != null && Convert.ToBoolean(row.Cells["Seleccionar"].Value))
+                {
+                    string playerName = Convert.ToString(row.Cells["Conectados"].Value)?.Trim();
+                    if (playerName == nickname)
+                    {
+                        MessageBox.Show("No te puedes invitar a ti mismo");
+                        return;
+                    }
+                    else if (!string.IsNullOrEmpty(playerName))
+                    {
+                        if (string.IsNullOrEmpty(dest))
+                        {
+                            dest = playerName;
+                        }
+                        else if (string.IsNullOrEmpty(dest2))
+                        {
+                            dest2 = playerName;
+                        }
+                        else if (string.IsNullOrEmpty(dest3))
+                        {
+                            dest3 = playerName;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error en el proceso");
+                            return;
+                        }
+                    }
+                }
+            }
+
+            if (invitados == 1)
+                reg = $"8/{invitados}/{dest}/{nickname}";
+            else if (invitados == 2)
+                reg = $"8/{invitados}/{dest}/{dest2}/{nickname}";
+            else if (invitados == 3)
+                reg = $"8/{invitados}/{dest}/{dest2}/{dest3}/{nickname}";
+            else
+                reg = "Error en el proceso";
+
+            MessageBox.Show(reg);
+
+            byte[] msg = Encoding.ASCII.GetBytes(reg);
+            server.Send(msg);
+        }
     }
-}
+        }
+    
+
