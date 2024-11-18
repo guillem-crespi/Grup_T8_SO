@@ -31,34 +31,19 @@ namespace WindowsFormsApplication1
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Configurar el Timer
-            timer1.Interval = 1000; // 1 segundo
-            timer1.Tick += timer1_Tick; // Asocia el evento Tick
-            timer1.Start(); // Inicia el Timer
-
-            // Actualizar la hora inicial
-            lbl_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
-            
             dt.Columns.Add("Conectados");
             ListaConectados.DataSource = dt;
             ListaConectados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             ListaConectados.ReadOnly = false;
-            //ThreadStart ts = delegate { AtenderServidor(); };
-            //atender = new Thread(ts);
-            //atender.Start();
+            ThreadStart ts = delegate { AtenderServidor(); };
+            atender = new Thread(ts);
+            atender.Start();
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
             {
                 Name = "Seleccionar",
                 HeaderText = "Invitar"
             };
             ListaConectados.Columns.Add(checkBoxColumn);
-            
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            // Actualizar el Label con la hora actual
-            lbl_Hora.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void button_Desconectar_Click(object sender, EventArgs e) // CONSULTA 0 : BOTON DESCONECTAR
@@ -67,7 +52,7 @@ namespace WindowsFormsApplication1
             string mensaje = "0/" + nickname;
             byte[] msg = Encoding.ASCII.GetBytes(mensaje);
             server.Send(msg);
-            //atender.Abort();
+            atender.Abort();
 
 
             // Nos desconectamos
@@ -77,12 +62,104 @@ namespace WindowsFormsApplication1
             server.Close();
             Close();
         }
+        private void ListaCon_Click(object sender, EventArgs e) // CONSULTA 3 : LISTA CONECTADOS
+        {
+            
+            string mensaje = "3/";
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+        }
+
+        private void button2_Click(object sender, EventArgs e) // BOTON ENVIAR CONSULTA
+        {
 
 
+            if (DimeJugadores.Checked) // CONSUTLA 10 : JUGADORES QUE JUGARON EL DIA INTRODUCIDO PORO TECLADO
+            {
+                string mensaje = "10/" + ConsultaFecha;
+                // Enviamos al servidor el nombre tecleado
+                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                server.Send(msg);
+                MessageBox.Show(mensaje);
+                
+                //Recibimos la respuesta del servidor                    
+                byte[] msg2 = new byte[80];
+                server.Receive(msg2);
+                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
 
 
+                if (mensaje == "ERROR_DB")
+                    MessageBox.Show("No hay partidas en esa fecha");
+                else
+                    MessageBox.Show("Los jugadores que jugaron ese día son:" + mensaje);
 
+            }
+            if (DimeGanadores.Checked)  // CONSULTA 11 : JUGADORES QUE GANARON EL DIA INTRODUCIDO PORO TECLADO
+            {
 
+                string mensaje = "11/" + ConsultaFecha.Text;
+                //Enviamos consulta al servidor 
+                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                server.Send(msg);
+
+                // Recibimos la respuesta del servidor
+                byte[] msg2 = new byte[80];
+                server.Receive(msg2);
+                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+
+                if (mensaje == "ERROR_DB")
+                    MessageBox.Show("No hay partidas en esa fecha");
+                else
+                    MessageBox.Show("Los jugadores que ganaron ese día son:" + mensaje);
+
+            }
+            if (SumaDuracion.Checked) // CONSULTA 12 : Duracion total partidas de un jugador , introduciendo su nombre por teclado
+            {
+               
+                string mensaje = "12/" + ConsultaNombre.Text;
+                // Enviamos al servidor el nombre tecleado
+                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                server.Send(msg);
+
+                //Recibimos la respuesta del servidor                    
+                byte[] msg2 = new byte[80];
+                server.Receive(msg2);
+                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+
+                if (mensaje == "ERROR_DB")
+                    MessageBox.Show("No hay partidas de ese jugador");
+                else
+                    MessageBox.Show("La duración total de partidas ganadas es: " + mensaje);
+
+            }
+
+        }
+
+        private void button_MatrizJuego_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
+        }
+
+        private void Log_Out_Click(object sender, EventArgs e)
+        {
+            string mensaje = "4/" + nickname + "/" + password;
+            //Enviamos consulta al servidor 
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            // Recibimos la respuesta del servidor
+            byte[] msg2 = new byte[80];
+            server.Receive(msg2);
+            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+
+            if (mensaje == "ERROR_DB")
+                MessageBox.Show("No se puede dar de baja");
+            else if (mensaje == "DELETED_SUCCESSFUL")
+            {
+                MessageBox.Show("Usuario dado de baja correctamente");
+            }
+        }
 
         private void button_Baja_Click(object sender, EventArgs e)
         {
@@ -105,7 +182,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        
         private void AtenderServidor()
         {
             while (true)
@@ -116,9 +192,30 @@ namespace WindowsFormsApplication1
                 int codigo = Convert.ToInt32(trozos[0]);
                 string mensaje;
 
+                switch (codigo)
+                {
+                    case 6:
+                        mensaje = trozos[1].Split('\0')[0];
+                        MessageBox.Show(mensaje + " te ha invitado a jugar");
+
+                        break;
+
+                    case 3:
+                        Invoke(new Action(() =>
+                        {
+                            mensaje = trozos[1].Split('\0')[0];
+                            dt.Rows.Clear();
+                            int num = Convert.ToInt32(trozos[1]);
+                            for (int i = 2; i <= num+2; i++)
+                            {
+                                dt.Rows.Add(trozos[i]);
+                            }
+                        }));
+
+                        break;
+                }
             }
         }
-        
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -127,13 +224,12 @@ namespace WindowsFormsApplication1
                 string mensaje = "0/" + nickname;
                 byte[] msg = Encoding.ASCII.GetBytes(mensaje);
                 server.Send(msg);
-                //atender.Abort();
+                atender.Abort();
             }
             catch { }
         }
 //Invitar
-
-        private void Button_Invitar_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             int invitados = 0;
             string dest = "";
@@ -151,7 +247,7 @@ namespace WindowsFormsApplication1
 
             if (invitados > 3)
             {
-                MessageBox.Show("Máximo 4 invitaciones");
+                MessageBox.Show("Máximo 3 invitaciones");
                 return;
             }
 
@@ -189,137 +285,22 @@ namespace WindowsFormsApplication1
             }
 
             if (invitados == 1)
-                reg = $"8/{invitados}/{dest}/{nickname}";
+                reg = $"6/{invitados}/{dest}/{nickname}";
             else if (invitados == 2)
-                reg = $"8/{invitados}/{dest}/{dest2}/{nickname}";
+                reg = $"6/{invitados}/{dest}/{dest2}/{nickname}";
             else if (invitados == 3)
-                reg = $"8/{invitados}/{dest}/{dest2}/{dest3}/{nickname}";
-            else
+                reg = $"6/{invitados}/{dest}/{dest2}/{dest3}/{nickname}";
+            else {
                 reg = "Error en el proceso";
+                return;
+            }
 
             MessageBox.Show(reg);
 
             byte[] msg = Encoding.ASCII.GetBytes(reg);
             server.Send(msg);
         }
-
-
-        private void button_TableroJuego_Click(object sender, EventArgs e)
-        {
-            Form2 f2 = new Form2();
-            f2.ShowDialog();
-        }
-
-        private void button_Enviar_Click(object sender, EventArgs e)
-        {
-
-            if (DimeJugadores.Checked) // CONSUTLA 10 : JUGADORES QUE JUGARON EL DIA INTRODUCIDO PORO TECLADO
-            {
-                string mensaje = "10/" + ConsultaFecha;
-                // Enviamos al servidor el nombre tecleado
-                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-                server.Send(msg);
-                MessageBox.Show(mensaje);
-
-                //Recibimos la respuesta del servidor                    
-                byte[] msg2 = new byte[80];
-                server.Receive(msg2);
-                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-
-
-                if (mensaje == "ERROR_DB")
-                    MessageBox.Show("No hay partidas en esa fecha");
-                else
-                    MessageBox.Show("Los jugadores que jugaron ese día son:" + mensaje);
-
-            }
-            if (DimeGanadores.Checked)  // CONSULTA 11 : JUGADORES QUE GANARON EL DIA INTRODUCIDO PORO TECLADO
-            {
-
-                string mensaje = "11/" + ConsultaFecha.Text;
-                //Enviamos consulta al servidor 
-                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-                server.Send(msg);
-
-                // Recibimos la respuesta del servidor
-                byte[] msg2 = new byte[80];
-                server.Receive(msg2);
-                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-
-                if (mensaje == "ERROR_DB")
-                    MessageBox.Show("No hay partidas en esa fecha");
-                else
-                    MessageBox.Show("Los jugadores que ganaron ese día son:" + mensaje);
-
-            }
-            if (SumaDuracion.Checked) // CONSULTA 12 : Duracion total partidas de un jugador , introduciendo su nombre por teclado
-            {
-
-                string mensaje = "12/" + ConsultaNombre.Text;
-                // Enviamos al servidor el nombre tecleado
-                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-                server.Send(msg);
-
-                //Recibimos la respuesta del servidor                    
-                byte[] msg2 = new byte[80];
-                server.Receive(msg2);
-                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-
-                if (mensaje == "ERROR_DB")
-                    MessageBox.Show("No hay partidas de ese jugador");
-                else
-                    MessageBox.Show("La duración total de partidas ganadas es: " + mensaje);
-
-            }
-        }
-
-        private void button_Log_Out_Click(object sender, EventArgs e)
-        {
-            string mensaje = "4/" + nickname + "/" + password;
-            //Enviamos consulta al servidor 
-            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
-
-            // Recibimos la respuesta del servidor
-            byte[] msg2 = new byte[80];
-            server.Receive(msg2);
-            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-
-            if (mensaje == "ERROR_DB")
-                MessageBox.Show("No se puede dar de baja");
-            else if (mensaje == "DELETED_SUCCESSFUL")
-            {
-                MessageBox.Show("Usuario dado de baja correctamente");
-            }
-        }
-
-        private void button_ListaCon_Click(object sender, EventArgs e)
-        {
-            string mensaje = "3/";
-            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
-
-            //Recibimos la respuesta del servidor                    
-            byte[] msg2 = new byte[200];
-            server.Receive(msg2);
-
-            string mensaje2 = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-            string[] trozos = mensaje2.Split('/');
-
-            int x = 1;
-            Invoke(new Action(() =>
-            {
-                dt.Rows.Clear();
-                int num = Convert.ToInt32(trozos[0]);
-                for (int i = 0; i <= num; i++)
-                {
-                    dt.Rows.Add(trozos[x]);
-                    x++;
-                }
-            }));
-        }
     }
 }
     
 
-  

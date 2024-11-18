@@ -430,8 +430,8 @@ void *AtenderCliente (void *socket)
 			DameConectados (&miLista, conectados);
 			//pthread_mutex_unlock(&mutex);
 			
-			sprintf (respuesta, "%s", conectados);
-			write (sock_conn,respuesta, strlen(respuesta));
+			sprintf (respuesta, "3/%s", conectados);
+			write (sock_conn, respuesta, strlen(respuesta));
 		}
 
 		/////////////////////////////////////////////////////////////////	
@@ -476,19 +476,83 @@ void *AtenderCliente (void *socket)
 		/////////////////////////////////////////////////////////////////	
 		else if (codigo == 6) // CONSULTA 6 : INVITACION
 		{
-			char nombre1[20];	//Persona que convida
-			char nombre2[20];	//Persona que és convidada
+			char nombre1[20];	//Persones que són convidades
+			char nombre2[20];
+			char nombre3[20];
+			char nombre4[20];	//Persona que convida
+			int numJugador;
 			int found = 0;
 			p = strtok(NULL, "/");
-			strcpy(nombre1, p);
+			printf("numJugadors: %s", p);
+			numJugador = atoi(p);
 			p = strtok(NULL, "/");
-			strcpy(nombre2, p);
+			strcpy(nombre1, p);
 
-			for (int i = 0; i < miLista.num && found == 0; i++) {
-				if (strcmp(nombre2, miLista.conectados[i].nombre) == 0) {
-					sprintf(respuesta, "6/%s", nombre1);
-					write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
-				}
+			switch (numJugador) {
+				case 1:
+					p = strtok(NULL, "/");
+					strcpy(nombre4, p);
+
+					for (int i = 0; i < miLista.num && found == 0; i++) {
+						if (strcmp(nombre1, miLista.conectados[i].nombre) == 0) {
+							sprintf(respuesta, "6/%s", nombre4);
+							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
+						}
+					}
+
+					break;
+				case 2:
+					p = strtok(NULL, "/");
+					strcpy(nombre2, p);
+					p = strtok(NULL, "/");
+					strcpy(nombre4, p);
+
+					for (int i = 0; i < miLista.num && found == 0; i++) {
+						if (strcmp(nombre1, miLista.conectados[i].nombre) == 0) {
+							sprintf(respuesta, "6/%s", nombre4);
+							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
+						}
+					}
+
+					for (int i = 0; i < miLista.num && found == 0; i++) {
+						if (strcmp(nombre2, miLista.conectados[i].nombre) == 0) {
+							sprintf(respuesta, "6/%s", nombre4);
+							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
+						}
+					}
+
+					break;
+
+				case 3:
+					p = strtok(NULL, "/");
+					strcpy(nombre2, p);
+					p = strtok(NULL, "/");
+					strcpy(nombre3, p);
+					p = strtok(NULL, "/");
+					strcpy(nombre4, p);
+
+					for (int i = 0; i < miLista.num && found == 0; i++) {
+						if (strcmp(nombre1, miLista.conectados[i].nombre) == 0) {
+							sprintf(respuesta, "6/%s", nombre4);
+							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
+						}
+					}
+
+					for (int i = 0; i < miLista.num && found == 0; i++) {
+						if (strcmp(nombre2, miLista.conectados[i].nombre) == 0) {
+							sprintf(respuesta, "6/%s", nombre4);
+							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
+						}
+					}
+
+					for (int i = 0; i < miLista.num && found == 0; i++) {
+						if (strcmp(nombre3, miLista.conectados[i].nombre) == 0) {
+							sprintf(respuesta, "6/%s", nombre4);
+							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
+						}
+					}
+
+					break;
 			}
 		}
 		
@@ -648,7 +712,7 @@ int main(int argc, char **argv)
 	memset(&serv_adr, 0, sizeof(serv_adr));// inicialitza a zero serv_addr
 	serv_adr.sin_family = AF_INET;
 	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY); // asociar socket a cualquier IP
-	serv_adr.sin_port = htons(50085); // establecemos el puerto de escucha
+	serv_adr.sin_port = htons(50089); // establecemos el puerto de escucha
 	
 	if (bind(sock_listen, (struct sockaddr *) &serv_adr, sizeof(serv_adr)) < 0)
 		printf ("Error al bind\n");

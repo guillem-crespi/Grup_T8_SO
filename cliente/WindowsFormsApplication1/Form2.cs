@@ -66,7 +66,7 @@ namespace WindowsFormsApplication1
             AsignarPosiciones();
 
             //Creacio del tauler
-            tablero.ClientSize = new Size(900, 900);
+            tablero.ClientSize = new Size(700, 700);
             tablero.Location = new Point(0, 0);
             tablero.SizeMode = PictureBoxSizeMode.StretchImage;
             tablero.Image = Image.FromFile("Oca.jpg");
@@ -87,14 +87,14 @@ namespace WindowsFormsApplication1
 
             for (int i = 0; i < casillas.Count; i++)
             {
-                casillas[i] = (int)(casillas[i] * 0.9);
+                casillas[i] = (int)(casillas[i] * 0.7);
             }
 
             casillasJugador.AddRange(new int[] { 920, 963, 960, 10, 2, 795, 792, 173, 170, 627 });
 
             for (int i = 0;i < casillasJugador.Count; i++)
             {
-                casillasJugador[i] = (int)(casillasJugador[i] * 0.9);
+                casillasJugador[i] = (int)(casillasJugador[i] * 0.7);
             }
 
             posiciones.AddRange(new int[] { 0, 0, 0, 0 });
@@ -260,10 +260,10 @@ namespace WindowsFormsApplication1
 
             Graphics g = e.Graphics;
 
-            RectangleF pieza1 = new RectangleF(coord1[0], coord1[1], (int)(35 * 0.9), (int)(35 * 0.9));
-            RectangleF pieza2 = new RectangleF(coord2[0], coord2[1], (int)(35 * 0.9), (int)(35 * 0.9));
-            RectangleF pieza3 = new RectangleF(coord3[0], coord3[1], (int)(35 * 0.9), (int)(35 * 0.9));
-            RectangleF pieza4 = new RectangleF(coord4[0], coord4[1], (int)(35 * 0.9), (int)(35 * 0.9));
+            RectangleF pieza1 = new RectangleF(coord1[0], coord1[1], (int)(35 * 0.7), (int)(35 * 0.7));
+            RectangleF pieza2 = new RectangleF(coord2[0], coord2[1], (int)(35 * 0.7), (int)(35 * 0.7));
+            RectangleF pieza3 = new RectangleF(coord3[0], coord3[1], (int)(35 * 0.7), (int)(35 * 0.7));
+            RectangleF pieza4 = new RectangleF(coord4[0], coord4[1], (int)(35 * 0.7), (int)(35 * 0.7));
 
             SolidBrush myBrush1 = new SolidBrush(Color.Red); //Interior de color
             SolidBrush myBrush2 = new SolidBrush(Color.Blue);
@@ -291,7 +291,7 @@ namespace WindowsFormsApplication1
         private int[] GetCoordinates(int pos, List<int> cas, List<int> casJugador, int nJugador)    //Retorna les coordenades dels pixels del tauler
         {
             int[] coords = new int[2];  //x i y de les fitxes
-            int separacion = (int)(35 * 0.9 * (nJugador - 1)); 
+            int separacion = (int)(35 * 0.7 * (nJugador - 1)); 
 
             if (pos == 0)
             {
