@@ -1,32 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\",
+  "WorkspaceRootPath": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\windowsformsapplication1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|c:\\users\\polpo\\desktop\\a\\grup_t8_so-3-dev\\cliente\\windowsformsapplication1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\windowsformsapplication1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\windowsformsapplication1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|c:\\users\\polpo\\desktop\\projecte so\\grup_t8_so\\cliente\\windowsformsapplication1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\windowsformsapplication1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\windowsformsapplication1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\windowsformsapplication1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\windowsformsapplication1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\servidor.c||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\windowsformsapplication1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\windowsformsapplication1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\windowsformsapplication1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -37,7 +37,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -45,84 +45,87 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Form3.cs",
-              "DocumentMoniker": "C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\WindowsFormsApplication1\\Form3.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form3.cs",
-              "ToolTip": "C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\WindowsFormsApplication1\\Form3.cs",
-              "RelativeToolTip": "WindowsFormsApplication1\\Form3.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAD4vyEAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T15:53:36.57Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form3.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\WindowsFormsApplication1\\Form3.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form3.cs",
-              "ToolTip": "C:\\Users\\polpo\\Downloads\\Grup_T8_SO-3-dev\\cliente\\WindowsFormsApplication1\\Form3.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\Downloads\\Grup_T8_SO-3-dev\\cliente\\WindowsFormsApplication1\\Form3.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T15:53:30.327Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\WindowsFormsApplication1\\Form1.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form1.cs",
-              "ToolTip": "C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\WindowsFormsApplication1\\Form1.cs",
-              "RelativeToolTip": "WindowsFormsApplication1\\Form1.cs",
-              "ViewState": "AgIAAMcAAAAAAAAAAAAuwOQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T18:07:58.841Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\WindowsFormsApplication1\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\WindowsFormsApplication1\\Form1.cs",
               "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form1.cs",
-              "ToolTip": "C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\WindowsFormsApplication1\\Form1.cs [Design]",
-              "RelativeToolTip": "WindowsFormsApplication1\\Form1.cs [Design]",
+              "ToolTip": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\WindowsFormsApplication1\\Form1.cs [Design]*",
+              "RelativeToolTip": "WindowsFormsApplication1\\Form1.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-06T18:07:52.005Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\WindowsFormsApplication1\\Form1.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form1.cs",
+              "ToolTip": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\WindowsFormsApplication1\\Form1.cs*",
+              "RelativeToolTip": "WindowsFormsApplication1\\Form1.cs*",
+              "ViewState": "AgIAACsAAAAAAAAAAAAwwCcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-06T18:07:58.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form3.cs",
+              "DocumentMoniker": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\WindowsFormsApplication1\\Form3.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form3.cs",
+              "ToolTip": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\WindowsFormsApplication1\\Form3.cs",
+              "RelativeToolTip": "WindowsFormsApplication1\\Form3.cs",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAgwFgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T15:53:36.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form3.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\WindowsFormsApplication1\\Form3.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form3.cs",
+              "ToolTip": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\WindowsFormsApplication1\\Form3.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApplication1\\Form3.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T15:53:30.327Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Form2.cs",
-              "DocumentMoniker": "C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\WindowsFormsApplication1\\Form2.cs",
+              "DocumentMoniker": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\WindowsFormsApplication1\\Form2.cs",
               "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form2.cs",
-              "ToolTip": "C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\WindowsFormsApplication1\\Form2.cs",
+              "ToolTip": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\WindowsFormsApplication1\\Form2.cs",
               "RelativeToolTip": "WindowsFormsApplication1\\Form2.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T14:50:38.687Z"
+              "WhenOpened": "2024-11-13T14:50:38.687Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Form2.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\polpo\\Desktop\\a\\Grup_T8_SO-3-dev\\cliente\\WindowsFormsApplication1\\Form2.cs",
+              "DocumentMoniker": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\WindowsFormsApplication1\\Form2.cs",
               "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form2.cs",
-              "ToolTip": "C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto copia\\cliente\\WindowsFormsApplication1\\Form2.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto copia\\cliente\\WindowsFormsApplication1\\Form2.cs [Design]",
+              "ToolTip": "C:\\Users\\polpo\\Desktop\\Projecte so\\Grup_T8_SO\\cliente\\WindowsFormsApplication1\\Form2.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApplication1\\Form2.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T14:50:41.387Z"
+              "WhenOpened": "2024-11-13T14:50:41.387Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "servidor.c",
               "DocumentMoniker": "C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\servidor.c",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\servidor.c",
               "ToolTip": "C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\servidor.c",
               "RelativeToolTip": "..\\..\\..\\..\\..\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\servidor.c",
-              "ViewState": "AgIAAHUCAAAAAAAAAAAAAIoCAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-11-17T15:24:31.572Z"
             }
