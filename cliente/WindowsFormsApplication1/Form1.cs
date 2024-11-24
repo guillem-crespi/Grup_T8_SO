@@ -206,7 +206,7 @@ namespace WindowsFormsApplication1
                             mensaje = trozos[1].Split('\0')[0];
                             dt.Rows.Clear();
                             int num = Convert.ToInt32(trozos[1]);
-                            for (int i = 2; i <= num+2; i++)
+                            for (int i = 2; i <= num + 2; i++)
                             {
                                 dt.Rows.Add(trozos[i]);
                             }

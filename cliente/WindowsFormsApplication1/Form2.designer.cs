@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.matriz = new System.Windows.Forms.DataGridView();
+            this.Resolution_Box = new System.Windows.Forms.ComboBox();
             this.button_Dados = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Resultado = new System.Windows.Forms.TextBox();
             this.Resultado2 = new System.Windows.Forms.TextBox();
             this.SumaResultado = new System.Windows.Forms.TextBox();
@@ -39,29 +38,30 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.matriz)).BeginInit();
+            this.Resolution_Lbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // matriz
+            // Resolution_Box
             // 
-            this.matriz.AllowUserToAddRows = false;
-            this.matriz.AllowUserToDeleteRows = false;
-            this.matriz.AllowUserToResizeColumns = false;
-            this.matriz.AllowUserToResizeRows = false;
-            this.matriz.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.matriz.ColumnHeadersVisible = false;
-            this.matriz.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.matriz.Location = new System.Drawing.Point(20, 200);
-            this.matriz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.matriz.MultiSelect = false;
-            this.matriz.Name = "matriz";
-            this.matriz.ReadOnly = true;
-            this.matriz.RowHeadersVisible = false;
-            this.matriz.RowHeadersWidth = 62;
-            this.matriz.RowTemplate.Height = 28;
-            this.matriz.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.matriz.Size = new System.Drawing.Size(331, 164);
-            this.matriz.TabIndex = 0;
+            this.Resolution_Box.AccessibleName = "Resolution_Box";
+            this.Resolution_Box.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Resolution_Box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Resolution_Box.FormattingEnabled = true;
+            this.Resolution_Box.Items.AddRange(new object[] {
+            "1000x1000",
+            "900x900",
+            "800x800",
+            "700x700",
+            "600x600",
+            "500x500",
+            "400x400",
+            "300x300"});
+            this.Resolution_Box.Location = new System.Drawing.Point(52, 388);
+            this.Resolution_Box.Name = "Resolution_Box";
+            this.Resolution_Box.Size = new System.Drawing.Size(115, 21);
+            this.Resolution_Box.TabIndex = 28;
+            this.Resolution_Box.Tag = "";
+            this.Resolution_Box.SelectedIndexChanged += new System.EventHandler(this.Resolution_Box_SelectedIndexChanged);
             // 
             // button_Dados
             // 
@@ -73,19 +73,11 @@
             this.button_Dados.UseVisualStyleBackColor = true;
             this.button_Dados.Click += new System.EventHandler(this.button_Dados_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(68, 20);
-            this.textBox1.TabIndex = 19;
-            // 
             // Resultado
             // 
             this.Resultado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Resultado.Location = new System.Drawing.Point(69, 153);
-            this.Resultado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Resultado.Margin = new System.Windows.Forms.Padding(2);
             this.Resultado.Name = "Resultado";
             this.Resultado.ReadOnly = true;
             this.Resultado.Size = new System.Drawing.Size(23, 20);
@@ -95,7 +87,7 @@
             // 
             this.Resultado2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Resultado2.Location = new System.Drawing.Point(114, 153);
-            this.Resultado2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Resultado2.Margin = new System.Windows.Forms.Padding(2);
             this.Resultado2.Name = "Resultado2";
             this.Resultado2.ReadOnly = true;
             this.Resultado2.Size = new System.Drawing.Size(23, 20);
@@ -105,7 +97,7 @@
             // 
             this.SumaResultado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SumaResultado.Location = new System.Drawing.Point(83, 180);
-            this.SumaResultado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SumaResultado.Margin = new System.Windows.Forms.Padding(2);
             this.SumaResultado.Name = "SumaResultado";
             this.SumaResultado.ReadOnly = true;
             this.SumaResultado.Size = new System.Drawing.Size(40, 13);
@@ -116,14 +108,14 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Location = new System.Drawing.Point(464, 11);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 900);
+            this.panel1.Size = new System.Drawing.Size(1000, 1000);
             this.panel1.TabIndex = 23;
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(52, 496);
+            this.radioButton1.Location = new System.Drawing.Point(69, 215);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(72, 17);
             this.radioButton1.TabIndex = 24;
@@ -134,7 +126,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(52, 519);
+            this.radioButton2.Location = new System.Drawing.Point(69, 238);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(72, 17);
             this.radioButton2.TabIndex = 25;
@@ -144,7 +136,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(52, 542);
+            this.radioButton3.Location = new System.Drawing.Point(69, 261);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(72, 17);
             this.radioButton3.TabIndex = 26;
@@ -154,45 +146,50 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(52, 565);
+            this.radioButton4.Location = new System.Drawing.Point(69, 284);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(72, 17);
             this.radioButton4.TabIndex = 27;
             this.radioButton4.Text = "Jugador 4";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
+            // Resolution_Lbl
+            // 
+            this.Resolution_Lbl.AutoSize = true;
+            this.Resolution_Lbl.Location = new System.Drawing.Point(49, 372);
+            this.Resolution_Lbl.Name = "Resolution_Lbl";
+            this.Resolution_Lbl.Size = new System.Drawing.Size(60, 13);
+            this.Resolution_Lbl.TabIndex = 29;
+            this.Resolution_Lbl.Text = "Resolution:";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1155, 765);
+            this.ClientSize = new System.Drawing.Size(1520, 1026);
+            this.Controls.Add(this.Resolution_Lbl);
+            this.Controls.Add(this.Resolution_Box);
             this.Controls.Add(this.radioButton4);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.matriz);
             this.Controls.Add(this.SumaResultado);
             this.Controls.Add(this.Resultado2);
             this.Controls.Add(this.Resultado);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button_Dados);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.matriz)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView matriz;
         private System.Windows.Forms.Button button_Dados;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox Resultado;
         private System.Windows.Forms.TextBox Resultado2;
         private System.Windows.Forms.TextBox SumaResultado;
@@ -201,5 +198,7 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.ComboBox Resolution_Box;
+        private System.Windows.Forms.Label Resolution_Lbl;
     }
 }
