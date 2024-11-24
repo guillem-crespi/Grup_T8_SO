@@ -91,66 +91,35 @@ namespace WindowsFormsApplication1
             else
                 nJugador = 4;
 
-            switch (nJugador)
+
+            if (posiciones[nJugador - 1] == 0)
             {
-                case 1:
-                    if (posiciones[0] == 0)
-                    {
-                        posiciones[0] += 1;
-                    }
+                posiciones[nJugador - 1] += 1;
+            }
 
-                    posiciones[0] += suma;
+            posiciones[nJugador - 1] += suma;
 
-                    if (posiciones[0] > 63)
-                    {
-                        posiciones[0] = 2 * 63 - posiciones[0];
-                    }
+            if (posiciones[nJugador - 1] > 63)
+            {
+                posiciones[nJugador - 1] = 2 * 63 - posiciones[nJugador - 1];
+            }
 
+            switch (posiciones[nJugador - 1])   //Posicions especials
+            {
+                case 6:     //Puente a puente
+                    posiciones[nJugador - 1] = 12;
                     break;
-
-                case 2:
-                    if (posiciones[1] == 0)
-                    {
-                        posiciones[1] += 1;
-                    }
-
-                    posiciones[1] += suma;
-
-                    if (posiciones[1] > 63)
-                    {
-                        posiciones[1] = 2 * 63 - posiciones[1];
-                    }
-
+                case 12:    //Puente a puente
+                    posiciones[nJugador - 1] = 6;
                     break;
-
-                case 3:
-                    if (posiciones[2] == 0)
-                    {
-                        posiciones[2] += 1;
-                    }
-
-                    posiciones[2] += suma;
-
-                    if (posiciones[2] > 63)
-                    {
-                        posiciones[2] = 2 * 63 - posiciones[2];
-                    }
-
+                case 26:    //Dados
+                    posiciones[nJugador - 1] = 53;
                     break;
-
-                case 4:
-                    if (posiciones[3] == 0)
-                    {
-                        posiciones[3] += 1;
-                    }
-
-                    posiciones[3] += suma;
-
-                    if (posiciones[3] > 63)
-                    {
-                        posiciones[3] = 2 * 63 - posiciones[3];
-                    }
-
+                case 53:    //Dados
+                    posiciones[nJugador - 1] = 26;
+                    break;
+                case 58:    //Muerte
+                    posiciones[nJugador - 1] = 0;
                     break;
             }
 
@@ -165,10 +134,10 @@ namespace WindowsFormsApplication1
             int[] coord3 = new int[2];
             int[] coord4 = new int[2];
 
-            coord1 = GetCoordinates(posiciones[0], casillas, casillasJugador, 1);
-            coord2 = GetCoordinates(posiciones[1], casillas, casillasJugador, 2);
-            coord3 = GetCoordinates(posiciones[2], casillas, casillasJugador, 3);
-            coord4 = GetCoordinates(posiciones[3], casillas, casillasJugador, 4);
+            coord1 = GetCoordinates(casillas, casillasJugador, 1);
+            coord2 = GetCoordinates(casillas, casillasJugador, 2);
+            coord3 = GetCoordinates(casillas, casillasJugador, 3);
+            coord4 = GetCoordinates(casillas, casillasJugador, 4);
 
             Graphics g = e.Graphics;
 
@@ -200,11 +169,12 @@ namespace WindowsFormsApplication1
             myPen.Dispose();
         }
 
-        private int[] GetCoordinates(int pos, List<int> cas, List<int> casJugador, int nJugador)    //Retorna les coordenades dels pixels del tauler
+        private int[] GetCoordinates(List<int> cas, List<int> casJugador, int nJugador)    //Retorna les coordenades dels pixels del tauler
         {
+            int pos = posiciones[nJugador - 1];
             float res = resolution;
             int[] coords = new int[2];  //x i y de les fitxes
-            int separacion = (int)(35 * res * (nJugador - 1)); 
+            int separacion = (int)(35 * res * (nJugador - 1));
 
             if (pos == 0)
             {

@@ -167,7 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1520, 1026);
+            this.ClientSize = new System.Drawing.Size(1484, 1021);
             this.Controls.Add(this.Resolution_Lbl);
             this.Controls.Add(this.Resolution_Box);
             this.Controls.Add(this.radioButton4);
