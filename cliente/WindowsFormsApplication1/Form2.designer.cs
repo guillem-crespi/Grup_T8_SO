@@ -39,6 +39,7 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.Resolution_Lbl = new System.Windows.Forms.Label();
+            this.Resultado_Lbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Resolution_Box
@@ -65,7 +66,7 @@
             // 
             // button_Dados
             // 
-            this.button_Dados.Location = new System.Drawing.Point(52, 99);
+            this.button_Dados.Location = new System.Drawing.Point(52, 53);
             this.button_Dados.Name = "button_Dados";
             this.button_Dados.Size = new System.Drawing.Size(115, 34);
             this.button_Dados.TabIndex = 18;
@@ -76,7 +77,7 @@
             // Resultado
             // 
             this.Resultado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Resultado.Location = new System.Drawing.Point(69, 153);
+            this.Resultado.Location = new System.Drawing.Point(69, 104);
             this.Resultado.Margin = new System.Windows.Forms.Padding(2);
             this.Resultado.Name = "Resultado";
             this.Resultado.ReadOnly = true;
@@ -86,7 +87,7 @@
             // Resultado2
             // 
             this.Resultado2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Resultado2.Location = new System.Drawing.Point(114, 153);
+            this.Resultado2.Location = new System.Drawing.Point(109, 104);
             this.Resultado2.Margin = new System.Windows.Forms.Padding(2);
             this.Resultado2.Name = "Resultado2";
             this.Resultado2.ReadOnly = true;
@@ -96,7 +97,7 @@
             // SumaResultado
             // 
             this.SumaResultado.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SumaResultado.Location = new System.Drawing.Point(83, 180);
+            this.SumaResultado.Location = new System.Drawing.Point(84, 141);
             this.SumaResultado.Margin = new System.Windows.Forms.Padding(2);
             this.SumaResultado.Name = "SumaResultado";
             this.SumaResultado.ReadOnly = true;
@@ -115,6 +116,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
+            this.radioButton1.Enabled = false;
             this.radioButton1.Location = new System.Drawing.Point(69, 215);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(72, 17);
@@ -126,6 +128,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.Enabled = false;
             this.radioButton2.Location = new System.Drawing.Point(69, 238);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(72, 17);
@@ -136,6 +139,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
+            this.radioButton3.Enabled = false;
             this.radioButton3.Location = new System.Drawing.Point(69, 261);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(72, 17);
@@ -146,6 +150,7 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
+            this.radioButton4.Enabled = false;
             this.radioButton4.Location = new System.Drawing.Point(69, 284);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(72, 17);
@@ -162,12 +167,22 @@
             this.Resolution_Lbl.TabIndex = 29;
             this.Resolution_Lbl.Text = "Resolution:";
             // 
+            // Resultado_Lbl
+            // 
+            this.Resultado_Lbl.AutoSize = true;
+            this.Resultado_Lbl.Location = new System.Drawing.Point(21, 141);
+            this.Resultado_Lbl.Name = "Resultado_Lbl";
+            this.Resultado_Lbl.Size = new System.Drawing.Size(58, 13);
+            this.Resultado_Lbl.TabIndex = 30;
+            this.Resultado_Lbl.Text = "Resultado:";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1484, 1021);
+            this.Controls.Add(this.Resultado_Lbl);
             this.Controls.Add(this.Resolution_Lbl);
             this.Controls.Add(this.Resolution_Box);
             this.Controls.Add(this.radioButton4);
@@ -200,5 +215,6 @@
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.ComboBox Resolution_Box;
         private System.Windows.Forms.Label Resolution_Lbl;
+        private System.Windows.Forms.Label Resultado_Lbl;
     }
 }
