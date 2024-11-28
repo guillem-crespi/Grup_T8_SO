@@ -31,8 +31,8 @@
             this.ConsultaFecha = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.button_Baja = new System.Windows.Forms.Button();
-            this.Log_Out = new System.Windows.Forms.Button();
             this.button_MatrizJuego = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.ConsultaNombre = new System.Windows.Forms.TextBox();
@@ -44,7 +44,8 @@
             this.SumaDuracion = new System.Windows.Forms.RadioButton();
             this.DimeJugadores = new System.Windows.Forms.RadioButton();
             this.button_Desconectar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Respuesta_Lbl = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListaConectados)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +63,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(336, 407);
+            this.button2.Location = new System.Drawing.Point(572, 424);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(114, 39);
             this.button2.TabIndex = 5;
@@ -73,9 +74,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.Respuesta_Lbl);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button_Baja);
-            this.groupBox1.Controls.Add(this.Log_Out);
             this.groupBox1.Controls.Add(this.button_MatrizJuego);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.ConsultaNombre);
@@ -95,34 +96,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Peticion";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(177, 207);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 34);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "Invitar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // button_Baja
             // 
-            this.button_Baja.Location = new System.Drawing.Point(390, 76);
+            this.button_Baja.Location = new System.Drawing.Point(12, 615);
             this.button_Baja.Name = "button_Baja";
-            this.button_Baja.Size = new System.Drawing.Size(96, 34);
+            this.button_Baja.Size = new System.Drawing.Size(104, 37);
             this.button_Baja.TabIndex = 41;
             this.button_Baja.Text = "Darse de Baja";
             this.button_Baja.UseVisualStyleBackColor = true;
             this.button_Baja.Click += new System.EventHandler(this.button_Baja_Click);
             // 
-            // Log_Out
-            // 
-            this.Log_Out.Location = new System.Drawing.Point(390, 36);
-            this.Log_Out.Name = "Log_Out";
-            this.Log_Out.Size = new System.Drawing.Size(96, 34);
-            this.Log_Out.TabIndex = 40;
-            this.Log_Out.Text = "Log Out";
-            this.Log_Out.UseVisualStyleBackColor = true;
-            this.Log_Out.Click += new System.EventHandler(this.Log_Out_Click);
-            // 
             // button_MatrizJuego
             // 
-            this.button_MatrizJuego.Location = new System.Drawing.Point(390, 116);
+            this.button_MatrizJuego.BackColor = System.Drawing.Color.Lime;
+            this.button_MatrizJuego.Location = new System.Drawing.Point(542, 87);
             this.button_MatrizJuego.Name = "button_MatrizJuego";
-            this.button_MatrizJuego.Size = new System.Drawing.Size(96, 34);
+            this.button_MatrizJuego.Size = new System.Drawing.Size(182, 72);
             this.button_MatrizJuego.TabIndex = 39;
             this.button_MatrizJuego.Text = "Empezar a jugar";
-            this.button_MatrizJuego.UseVisualStyleBackColor = true;
+            this.button_MatrizJuego.UseVisualStyleBackColor = false;
             this.button_MatrizJuego.Click += new System.EventHandler(this.button_MatrizJuego_Click);
             // 
             // label6
@@ -131,9 +133,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(571, 380);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 15);
+            this.label6.Size = new System.Drawing.Size(121, 15);
             this.label6.TabIndex = 37;
-            this.label6.Text = "Introduce una nombre";
+            this.label6.Text = "Introduce un nombre";
             // 
             // ConsultaNombre
             // 
@@ -181,7 +183,7 @@
             // 
             this.ListaConectados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ListaConectados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ListaConectados.Location = new System.Drawing.Point(792, 58);
+            this.ListaConectados.Location = new System.Drawing.Point(56, 31);
             this.ListaConectados.Name = "ListaConectados";
             this.ListaConectados.RowHeadersVisible = false;
             this.ListaConectados.RowHeadersWidth = 62;
@@ -234,15 +236,22 @@
             this.button_Desconectar.UseVisualStyleBackColor = false;
             this.button_Desconectar.Click += new System.EventHandler(this.button_Desconectar_Click);
             // 
-            // button1
+            // label1
             // 
-            this.button1.Location = new System.Drawing.Point(492, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 34);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Invitar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(195, 382);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Respuesta:";
+            // 
+            // Respuesta_Lbl
+            // 
+            this.Respuesta_Lbl.AutoSize = true;
+            this.Respuesta_Lbl.Location = new System.Drawing.Point(195, 439);
+            this.Respuesta_Lbl.Name = "Respuesta_Lbl";
+            this.Respuesta_Lbl.Size = new System.Drawing.Size(0, 13);
+            this.Respuesta_Lbl.TabIndex = 44;
             // 
             // Form1
             // 
@@ -250,6 +259,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 688);
             this.Controls.Add(this.button_Desconectar);
+            this.Controls.Add(this.button_Baja);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -278,9 +288,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ConsultaNombre;
         private System.Windows.Forms.Button button_MatrizJuego;
-        private System.Windows.Forms.Button Log_Out;
         private System.Windows.Forms.Button button_Baja;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Respuesta_Lbl;
     }
 }
 

@@ -25,7 +25,7 @@ namespace WindowsFormsApplication1
         {
             ////Creamos un IPEndPoint con el ip del servidor y puerto del servidor al que deseamos conectarnos
             IPAddress direc = IPAddress.Parse("10.4.119.5");
-            IPEndPoint ipep = new IPEndPoint(direc, 50089);
+            IPEndPoint ipep = new IPEndPoint(direc, 50088);
 
 
             //Creamos el socket 
@@ -52,7 +52,7 @@ namespace WindowsFormsApplication1
             server.Receive(msg2);
             mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
 
-            if (mensaje == "LOGIN_SUCCESSFUL")
+            if (mensaje == "1/LOGIN_SUCCESSFUL")
             {
                 MessageBox.Show("Bienvenido/a " + nickname.Text + ". Has iniciado sesión correctamente.");
                 Form f = new Form1(nickname.Text, password.Text, server);
@@ -63,12 +63,12 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                if (mensaje == "NO_USER")
+                if (mensaje == "1/NO_USER")
                 {
                     MessageBox.Show("No estás registrado. Para registrarte, rellena los campos y presiona 'Registrar'.");
 
                 }
-                else if (mensaje == "WRONG_PASSWORD")
+                else if (mensaje == "1/WRONG_PASSWORD")
                 {
                     MessageBox.Show("Contraseña incorrecta. Por favor, inténtalo de nuevo.");
                 }
@@ -94,7 +94,7 @@ namespace WindowsFormsApplication1
             byte[] msg;
             ////Creamos un IPEndPoint con el ip del servidor y puerto del servidor al que deseamos conectarnos
             IPAddress direc = IPAddress.Parse("10.4.119.5");
-            IPEndPoint ipep = new IPEndPoint(direc, 50089);
+            IPEndPoint ipep = new IPEndPoint(direc, 50088);
 
 
             //Creamos el socket 
@@ -128,11 +128,11 @@ namespace WindowsFormsApplication1
                     server.Receive(msg2);
                     mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
 
-                    if (mensaje == "0")
+                    if (mensaje == "2/0")
                     {
                         MessageBox.Show("Bienvenido/a " + nickname.Text + ". Te has registrado correctamente.");
                     }
-                    else if (mensaje == "-1")
+                    else if (mensaje == "2/-1")
                     {
                         MessageBox.Show("Fallo al registrar, intentelo de nuevo.");
                     }
