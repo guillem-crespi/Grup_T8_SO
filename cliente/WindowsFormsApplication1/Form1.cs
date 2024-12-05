@@ -54,9 +54,6 @@ namespace WindowsFormsApplication1
             ChatTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ChatTable.AllowUserToAddRows = false;
             ChatTable.Columns[0].Width = 100;
-
-            ChatTable.Rows.Add("Roger", "Holaaaaaaaa aaaaaaaa aaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaa aaaaaaaaa aaaa");
-            ChatTable.Rows.Add("Alex", "Hola");
             ChatTable.ClearSelection();
 
             ThreadStart ts = delegate { AtenderServidor(); };
