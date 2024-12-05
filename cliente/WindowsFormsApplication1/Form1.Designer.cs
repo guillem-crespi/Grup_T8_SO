@@ -28,25 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ConsultaFecha = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ChatSendBtn = new System.Windows.Forms.Button();
+            this.ChatTxtBox = new System.Windows.Forms.TextBox();
+            this.Chat = new System.Windows.Forms.GroupBox();
+            this.ChatTable = new System.Windows.Forms.DataGridView();
+            this.Respuesta_Lbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button_Baja = new System.Windows.Forms.Button();
             this.button_MatrizJuego = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.ConsultaNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DimeGanadores = new System.Windows.Forms.RadioButton();
-            this.ListaCon = new System.Windows.Forms.Button();
             this.ListaConectados = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.SumaDuracion = new System.Windows.Forms.RadioButton();
             this.DimeJugadores = new System.Windows.Forms.RadioButton();
+            this.button_Baja = new System.Windows.Forms.Button();
             this.button_Desconectar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Respuesta_Lbl = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.Chat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChatTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListaConectados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +82,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.ChatSendBtn);
+            this.groupBox1.Controls.Add(this.ChatTxtBox);
+            this.groupBox1.Controls.Add(this.Chat);
             this.groupBox1.Controls.Add(this.Respuesta_Lbl);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button1);
@@ -82,7 +93,6 @@
             this.groupBox1.Controls.Add(this.ConsultaNombre);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.DimeGanadores);
-            this.groupBox1.Controls.Add(this.ListaCon);
             this.groupBox1.Controls.Add(this.ListaConectados);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.SumaDuracion);
@@ -96,6 +106,87 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Peticion";
             // 
+            // ChatSendBtn
+            // 
+            this.ChatSendBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChatSendBtn.Location = new System.Drawing.Point(1161, 434);
+            this.ChatSendBtn.Name = "ChatSendBtn";
+            this.ChatSendBtn.Size = new System.Drawing.Size(68, 29);
+            this.ChatSendBtn.TabIndex = 47;
+            this.ChatSendBtn.Text = "Enviar";
+            this.ChatSendBtn.UseVisualStyleBackColor = true;
+            this.ChatSendBtn.Click += new System.EventHandler(this.ChatSendBtn_Click);
+            // 
+            // ChatTxtBox
+            // 
+            this.ChatTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChatTxtBox.ForeColor = System.Drawing.Color.Black;
+            this.ChatTxtBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ChatTxtBox.Location = new System.Drawing.Point(801, 434);
+            this.ChatTxtBox.Name = "ChatTxtBox";
+            this.ChatTxtBox.Size = new System.Drawing.Size(354, 29);
+            this.ChatTxtBox.TabIndex = 46;
+            this.ChatTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ChatTxtBox_KeyPress);
+            // 
+            // Chat
+            // 
+            this.Chat.BackColor = System.Drawing.Color.White;
+            this.Chat.Controls.Add(this.ChatTable);
+            this.Chat.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Chat.Location = new System.Drawing.Point(801, 31);
+            this.Chat.Name = "Chat";
+            this.Chat.Size = new System.Drawing.Size(428, 385);
+            this.Chat.TabIndex = 45;
+            this.Chat.TabStop = false;
+            this.Chat.Text = "Chat";
+            // 
+            // ChatTable
+            // 
+            this.ChatTable.AllowUserToAddRows = false;
+            this.ChatTable.AllowUserToDeleteRows = false;
+            this.ChatTable.AllowUserToResizeColumns = false;
+            this.ChatTable.AllowUserToResizeRows = false;
+            this.ChatTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.ChatTable.BackgroundColor = System.Drawing.Color.White;
+            this.ChatTable.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ChatTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ChatTable.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ChatTable.EnableHeadersVisualStyles = false;
+            this.ChatTable.GridColor = System.Drawing.Color.White;
+            this.ChatTable.Location = new System.Drawing.Point(6, 19);
+            this.ChatTable.MultiSelect = false;
+            this.ChatTable.Name = "ChatTable";
+            this.ChatTable.ReadOnly = true;
+            this.ChatTable.RowHeadersVisible = false;
+            this.ChatTable.RowHeadersWidth = 62;
+            this.ChatTable.Size = new System.Drawing.Size(416, 360);
+            this.ChatTable.TabIndex = 48;
+            this.ChatTable.TabStop = false;
+            // 
+            // Respuesta_Lbl
+            // 
+            this.Respuesta_Lbl.AutoSize = true;
+            this.Respuesta_Lbl.Location = new System.Drawing.Point(195, 439);
+            this.Respuesta_Lbl.Name = "Respuesta_Lbl";
+            this.Respuesta_Lbl.Size = new System.Drawing.Size(0, 13);
+            this.Respuesta_Lbl.TabIndex = 44;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(195, 382);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Respuesta:";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(177, 207);
@@ -105,16 +196,6 @@
             this.button1.Text = "Invitar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button_Baja
-            // 
-            this.button_Baja.Location = new System.Drawing.Point(12, 615);
-            this.button_Baja.Name = "button_Baja";
-            this.button_Baja.Size = new System.Drawing.Size(104, 37);
-            this.button_Baja.TabIndex = 41;
-            this.button_Baja.Text = "Darse de Baja";
-            this.button_Baja.UseVisualStyleBackColor = true;
-            this.button_Baja.Click += new System.EventHandler(this.button_Baja_Click);
             // 
             // button_MatrizJuego
             // 
@@ -169,21 +250,33 @@
             this.DimeGanadores.Text = "Dime que ganadores jugaron este día (introduce fecha)";
             this.DimeGanadores.UseVisualStyleBackColor = true;
             // 
-            // ListaCon
-            // 
-            this.ListaCon.Location = new System.Drawing.Point(856, 251);
-            this.ListaCon.Name = "ListaCon";
-            this.ListaCon.Size = new System.Drawing.Size(196, 38);
-            this.ListaCon.TabIndex = 33;
-            this.ListaCon.Text = "Usuarios Conectados";
-            this.ListaCon.UseVisualStyleBackColor = true;
-            this.ListaCon.Click += new System.EventHandler(this.ListaCon_Click);
-            // 
             // ListaConectados
             // 
+            this.ListaConectados.AllowUserToAddRows = false;
+            this.ListaConectados.AllowUserToDeleteRows = false;
+            this.ListaConectados.AllowUserToResizeColumns = false;
+            this.ListaConectados.AllowUserToResizeRows = false;
             this.ListaConectados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListaConectados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.ListaConectados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ListaConectados.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ListaConectados.EnableHeadersVisualStyles = false;
             this.ListaConectados.Location = new System.Drawing.Point(56, 31);
+            this.ListaConectados.MultiSelect = false;
             this.ListaConectados.Name = "ListaConectados";
             this.ListaConectados.RowHeadersVisible = false;
             this.ListaConectados.RowHeadersWidth = 62;
@@ -224,6 +317,16 @@
             this.DimeJugadores.Text = "Dime que jugadores jugaron este día (introduce fecha)";
             this.DimeJugadores.UseVisualStyleBackColor = true;
             // 
+            // button_Baja
+            // 
+            this.button_Baja.Location = new System.Drawing.Point(12, 615);
+            this.button_Baja.Name = "button_Baja";
+            this.button_Baja.Size = new System.Drawing.Size(104, 37);
+            this.button_Baja.TabIndex = 41;
+            this.button_Baja.Text = "Darse de Baja";
+            this.button_Baja.UseVisualStyleBackColor = true;
+            this.button_Baja.Click += new System.EventHandler(this.button_Baja_Click);
+            // 
             // button_Desconectar
             // 
             this.button_Desconectar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -236,23 +339,6 @@
             this.button_Desconectar.UseVisualStyleBackColor = false;
             this.button_Desconectar.Click += new System.EventHandler(this.button_Desconectar_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(195, 382);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 43;
-            this.label1.Text = "Respuesta:";
-            // 
-            // Respuesta_Lbl
-            // 
-            this.Respuesta_Lbl.AutoSize = true;
-            this.Respuesta_Lbl.Location = new System.Drawing.Point(195, 439);
-            this.Respuesta_Lbl.Name = "Respuesta_Lbl";
-            this.Respuesta_Lbl.Size = new System.Drawing.Size(0, 13);
-            this.Respuesta_Lbl.TabIndex = 44;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,12 +348,15 @@
             this.Controls.Add(this.button_Baja);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Maroon;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.Chat.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ChatTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListaConectados)).EndInit();
             this.ResumeLayout(false);
 
@@ -282,7 +371,6 @@
         private System.Windows.Forms.Button button_Desconectar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView ListaConectados;
-        private System.Windows.Forms.Button ListaCon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton DimeGanadores;
         private System.Windows.Forms.Label label6;
@@ -292,6 +380,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Respuesta_Lbl;
+        private System.Windows.Forms.Button ChatSendBtn;
+        private System.Windows.Forms.TextBox ChatTxtBox;
+        private System.Windows.Forms.GroupBox Chat;
+        private System.Windows.Forms.DataGridView ChatTable;
     }
 }
 

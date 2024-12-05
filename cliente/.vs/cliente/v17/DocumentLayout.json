@@ -3,19 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\cliente\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\cliente\\windowsformsapplication1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|c:\\users\\roger\\onedrive\\escriptori\\escola\\universitat\\3.1\\sistemes operatius\\projecte\\proyectogrupo\\proyecto\\cliente\\windowsformsapplication1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\servidor.c||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\cliente\\windowsformsapplication1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|c:\\users\\roger\\onedrive\\escriptori\\escola\\universitat\\3.1\\sistemes operatius\\projecte\\proyectogrupo\\proyecto\\cliente\\windowsformsapplication1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\cliente\\windowsformsapplication1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\servidor.c||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\cliente\\windowsformsapplication1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -26,8 +26,8 @@
       "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\cliente\\windowsformsapplication1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\cliente\\windowsformsapplication1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5E08E40-5E04-41A2-AFB5-56E3E3274D24}|WindowsFormsApplication1\\clienteForm.csproj|solutionrelative:windowsformsapplication1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,14 +47,14 @@
               "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form1.cs",
               "ToolTip": "C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\cliente\\WindowsFormsApplication1\\Form1.cs",
               "RelativeToolTip": "WindowsFormsApplication1\\Form1.cs",
-              "ViewState": "AgIAAOcAAAAAAAAAAAAkwPoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAGwBAABpAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-06T18:07:58.841Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "Form2.cs",
               "DocumentMoniker": "C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\cliente\\WindowsFormsApplication1\\Form2.cs",
               "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form2.cs",
@@ -67,26 +67,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Form3.cs",
               "DocumentMoniker": "C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\cliente\\WindowsFormsApplication1\\Form3.cs",
               "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form3.cs",
               "ToolTip": "C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\cliente\\WindowsFormsApplication1\\Form3.cs",
               "RelativeToolTip": "WindowsFormsApplication1\\Form3.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAowBsAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T15:53:36.57Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "servidor.c",
               "DocumentMoniker": "C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\servidor.c",
               "RelativeDocumentMoniker": "..\\servidor.c",
               "ToolTip": "C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\servidor.c",
               "RelativeToolTip": "..\\servidor.c",
-              "ViewState": "AgIAAGsBAAAAAAAAAAAAAIoBAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAACcCAAAAAAAAAAAAAAcCAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-11-17T15:24:31.572Z",
               "EditorCaption": ""
@@ -114,7 +114,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\roger\\OneDrive\\Escriptori\\Escola\\Universitat\\3.1\\Sistemes Operatius\\Projecte\\ProyectoGrupo\\Proyecto\\cliente\\WindowsFormsApplication1\\Form1.cs",
               "RelativeDocumentMoniker": "WindowsFormsApplication1\\Form1.cs",

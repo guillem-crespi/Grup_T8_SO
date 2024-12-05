@@ -131,6 +131,7 @@
             this.Controls.Add(this.password);
             this.Controls.Add(this.nickname);
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
             this.ResumeLayout(false);
             this.PerformLayout();

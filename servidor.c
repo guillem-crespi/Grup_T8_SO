@@ -138,7 +138,7 @@ int DarseBaja(char p[200], char respuesta[200])
 	}
 	else 
 	{
-	printf("Usuario '%s' eliminado de la base de datos %u %s\n", mysql_errno(conn), mysql_error(conn));
+	printf("Usuario '%s' eliminado de la base de datos %u %s\n", nombre_usuario, mysql_errno(conn), mysql_error(conn));
 	sprintf(respuesta, "5/DELETED_SUCCESSFUL");
 	}
 }
@@ -202,11 +202,16 @@ int LogIn(char p[200], char respuesta[20])
 			strcpy(respuesta, "1/WRONG_PASSWORD");
 		} else {
 			// Usuario y contrase�a correctos
-			strcpy(respuesta, "1/LOGIN_SUCCESSFUL");
 			
 			pthread_mutex_lock( &mutex );
-			PonConectado(nombre_usuario, &sockets[numSocket-1]);
+			int success = PonConectado(nombre_usuario, &sockets[numSocket-1]);
 			pthread_mutex_unlock( &mutex );
+
+			if (success == 0) {
+				strcpy(respuesta, "1/LOGIN_SUCCESSFUL");
+			} else {
+				strcpy(respuesta, "1/ERROR_LIST");
+			}
 		}
 	}
 }
@@ -233,9 +238,9 @@ int PonConectado (char nombre[20], int *socket)
 // Pone en conectados los nombres de todos los conectados separados por "/". 
 // primero pone el numero de conectados
 
-void DameConectados (char conectado[200])
+void DameConectados (char conectado[300])
 {
-	char conectados[512];
+	char conectados[300];
 	sprintf(conectados, "%d/", miLista.num);
 	int i;
 	for (i = 0; i < miLista.num; i++){
@@ -505,6 +510,22 @@ void *AtenderCliente (void *socket)
 					break;
 			}
 		}
+		/////////////////////////////////////////////////////////////////	
+		else if (codigo == 7) // CONSULTA 7 : CHAT
+		{
+			char nom[20];
+			p = strtok(NULL, "/");
+			strcpy(nom, p);
+			char message[512];
+			p = strtok(NULL, "/");
+			strcpy(message, p);
+
+			sprintf(respuesta, "%d/%s/%s", codigo, nom, message);
+			printf("%s\n", respuesta);
+			for (int i = 0; i < numSocket; i++) {
+				write(sockets[i], respuesta, strlen(respuesta));
+			}
+		}
 		
 		///////////////////////////////////////////////////////////////
 		else if (codigo == 10) // CONSULTA 10 : DEVUELVE JUGADORES QUE JUGARON UN DIA INTROCUDIO POR TECLADO
@@ -553,7 +574,7 @@ void *AtenderCliente (void *socket)
 				}
 			}	
 			printf("Consulta de jugadores que jugaron el %s: %s\n", fecha, respuesta);
-			write (sock_conn,respuesta, strlen(respuesta));
+			write (sock_conn, respuesta, strlen(respuesta));
 		}
 		
 		//////////////////////////////////////////////////////////
@@ -562,7 +583,7 @@ void *AtenderCliente (void *socket)
 			char fecha[30];
 			p = strtok(NULL, "/"); 
 			strcpy(fecha,p);
-			char consulta[512];
+			char consulta[562];
 			char nombres[50];
 			
 			sprintf(consulta, "SELECT DISTINCT jugadores.nombre_usuario "

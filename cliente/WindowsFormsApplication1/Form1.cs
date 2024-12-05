@@ -16,7 +16,6 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         Socket server;
-        DataTable dt = new DataTable();
         Thread atender;
         string nickname;
         string password;
@@ -33,19 +32,36 @@ namespace WindowsFormsApplication1
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            dt.Columns.Add("Conectados");
-            ListaConectados.DataSource = dt;
-            ListaConectados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            ListaConectados.ReadOnly = false;
-            ThreadStart ts = delegate { AtenderServidor(); };
-            atender = new Thread(ts);
-            atender.Start();
+            ListaConectados.ColumnCount = 1;
+            ListaConectados.Columns[0].Name = "Conectados";
+
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
             {
                 Name = "Seleccionar",
-                HeaderText = "Invitar"
+                HeaderText = "Invitar",
             };
+
             ListaConectados.Columns.Add(checkBoxColumn);
+            ListaConectados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            ListaConectados.AllowUserToAddRows = false;
+            ListaConectados.Columns[0].ReadOnly = true;     //Conectados no editables
+            ListaConectados.Columns[1].ReadOnly = false;
+            ListaConectados.Columns[1].Width = 50;
+
+            ChatTable.ColumnCount = 2;
+            ChatTable.Columns[0].Name = "Nombre";
+            ChatTable.Columns[1].Name = "Mensaje";
+            ChatTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            ChatTable.AllowUserToAddRows = false;
+            ChatTable.Columns[0].Width = 100;
+
+            ChatTable.Rows.Add("Roger", "Holaaaaaaaa aaaaaaaa aaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaa aaaaaaaaa aaaa");
+            ChatTable.Rows.Add("Alex", "Hola");
+            ChatTable.ClearSelection();
+
+            ThreadStart ts = delegate { AtenderServidor(); };
+            atender = new Thread(ts);
+            atender.Start();
         }
 
         private void button_Desconectar_Click(object sender, EventArgs e) // CONSULTA 0 : BOTON DESCONECTAR
@@ -65,18 +81,8 @@ namespace WindowsFormsApplication1
             Close();
         }
 
-        private void ListaCon_Click(object sender, EventArgs e) // CONSULTA 3 : LISTA CONECTADOS
-        {
-            
-            string mensaje = "3/";
-            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
-        }
-
         private void button2_Click(object sender, EventArgs e) // BOTON ENVIAR CONSULTA
         {
-
-
             if (DimeJugadores.Checked) // CONSUTLA 10 : JUGADORES QUE JUGARON EL DIA INTRODUCIDO POR TECLADO
             {
                 string mensaje = "10/" + ConsultaFecha.Text;
@@ -141,12 +147,15 @@ namespace WindowsFormsApplication1
                     case 3:
                         Invoke(new Action(() =>
                         {
-                            dt.Rows.Clear();
+                            ListaConectados.Rows.Clear();
                             int num = Convert.ToInt32(trozos[1]);
-                            for (int i = 2; i <= num + 2; i++)
+
+                            for (int i = 2; i < num + 2; i++)
                             {
-                                dt.Rows.Add(trozos[i]);
+                                ListaConectados.Rows.Add(trozos[i], false);
                             }
+
+                            ListaConectados.ClearSelection();
                         }));
 
                         break;
@@ -182,6 +191,15 @@ namespace WindowsFormsApplication1
                         mensaje = trozos[1];
 
                         MessageBox.Show(mensaje + " te ha invitado a jugar");
+
+                        break;
+
+                    case 7:
+                        Invoke(new Action(() =>
+                        {
+                            ChatTable.Rows.Add(trozos[1], trozos[2]);
+                            ChatTable.ClearSelection();
+                        }));
 
                         break;
 
@@ -232,6 +250,7 @@ namespace WindowsFormsApplication1
             }
             catch { }
         }
+
 //Invitar
         private void button1_Click(object sender, EventArgs e)
         {
@@ -299,10 +318,71 @@ namespace WindowsFormsApplication1
                 return;
             }
 
-            MessageBox.Show(reg);
-
             byte[] msg = Encoding.ASCII.GetBytes(reg);
             server.Send(msg);
+        }
+
+        private void ChatSendBtn_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(ChatTxtBox.Text) && ChatTxtBox.Text.Length < 50)  //Si el missatge és molt llarg, no s'envia bé
+            {
+                bool found = false;
+                string message = ChatTxtBox.Text;
+                for (int i = 0; i < ChatTxtBox.Text.Length & !found; i++)
+                {
+                    if (message[i] == '/')  //No volem que s'envii una barra perquè trencarem el codi
+                    {
+                        found = true;
+                        MessageBox.Show("No se puede usar el caracter '/'");
+                    }
+                }
+
+                if (!found)
+                {
+                    string mensaje = "7/" + nickname + "/" + ChatTxtBox.Text;
+                    byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                    server.Send(msg);
+
+                    ChatTxtBox.Clear();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Texto vacio o demasiado largo");
+            }
+        }
+
+        private void ChatTxtBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                if (!string.IsNullOrEmpty(ChatTxtBox.Text) && ChatTxtBox.Text.Length < 50)  //Si el missatge és molt llarg, no s'envia bé
+                {
+                    bool found = false;
+                    string message = ChatTxtBox.Text;
+                    for (int i = 0; i < ChatTxtBox.Text.Length & !found; i++)
+                    {
+                        if (message[i] == '/')  //No volem que s'envii una barra perquè trencarem el codi
+                        {
+                            found = true;
+                            MessageBox.Show("No se puede usar el caracter '/'");
+                        }
+                    }
+
+                    if (!found)
+                    {
+                        string mensaje = "7/" + nickname + "/" + ChatTxtBox.Text;
+                        byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                        server.Send(msg);
+
+                        ChatTxtBox.Clear();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Texto vacio o demasiado largo");
+                }
+            }
         }
     }
 }
