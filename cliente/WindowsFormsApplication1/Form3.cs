@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.Drawing.Text;
 
 namespace WindowsFormsApplication1
 {
@@ -15,11 +16,11 @@ namespace WindowsFormsApplication1
     {
         Socket server;
         string mensaje;
-
+       
         public Form3()
         {
             InitializeComponent();
-        }
+    }
 
         private void button_LogIn_Click(object sender, EventArgs e)
         {
@@ -33,7 +34,7 @@ namespace WindowsFormsApplication1
             try
             {
                 server.Connect(ipep);//Intentamos conectar el socket
-                BackColor = Color.Green;
+                BackColor = Color.PaleGreen;
             }
             catch (SocketException)
             {
@@ -161,5 +162,7 @@ namespace WindowsFormsApplication1
             server.Shutdown(SocketShutdown.Both);
             server.Close();
         }
+
+       
     }
 }
