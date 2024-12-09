@@ -113,7 +113,7 @@ int Registrarse (char p[200], char respuesta[20])
 //---------------------------------------------------------
 //--------------------------------------------------------- BAJA
 
-int DarseBaja(char p[200], char respuesta[200])
+void DarseBaja(char p[200], char respuesta[200])
 {
 	//peticion
 	char nombre_usuario[20];
@@ -134,11 +134,10 @@ int DarseBaja(char p[200], char respuesta[200])
 	if (err != 0) {
 		printf("Error al consultar datos de la base %u %s\n", mysql_errno(conn), mysql_error(conn));
 		strcpy(respuesta, "5/ERROR_DB");
-		exit(1);
 	}
 	else 
 	{
-	printf("Usuario '%s' eliminado de la base de datos %u %s\n", nombre_usuario, mysql_errno(conn), mysql_error(conn));
+	printf("Usuario '%s' eliminado de la base de datos\n", nombre_usuario);
 	sprintf(respuesta, "5/DELETED_SUCCESSFUL");
 	}
 }
@@ -415,17 +414,30 @@ void *AtenderCliente (void *socket)
 		else if (codigo == 5) // CONSULTA 5 : DARSE DE BAJA
 		{
 			DarseBaja(p, respuesta);
-			
-			pthread_mutex_lock(&mutex);
-			int resultado = QuitarJugador(&sock_conn);
-			pthread_mutex_unlock(&mutex);
-			
-			pthread_mutex_lock(&mutex);
-			DameConectados(conectado);
-			pthread_mutex_unlock(&mutex);
     
-			printf("5/%s\n", respuesta);
+			printf("Resposta: %s\n", respuesta);
 			write(sock_conn, respuesta, strlen(respuesta));
+
+			int conf = QuitarJugador(&sock_conn);
+			if (conf == 1) {
+				printf("Usuari eliminat de la llista\nUsuaris restants:\n");
+				for (int i = 0; i < miLista.num; i++) {
+					printf("Nombre: %s\nSocket: %d\n\n", miLista.conectados[i].nombre, miLista.conectados[i].socket);
+				}
+			}
+
+			char conectados [300];
+			
+			DameConectados (conectados);
+			
+			sprintf (respuesta, "3/%s", conectados);
+			printf("%s", respuesta);
+
+			for (int i = 0; i < numSocket; i++) {
+				write (sockets[i], respuesta, strlen(respuesta));
+			}
+
+			terminar = 1;
 			
 		}
 		/////////////////////////////////////////////////////////////////	
@@ -682,7 +694,7 @@ int main(int argc, char **argv)
 	memset(&serv_adr, 0, sizeof(serv_adr));// inicialitza a zero serv_addr
 	serv_adr.sin_family = AF_INET;
 	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY); // asociar socket a cualquier IP
-	serv_adr.sin_port = htons(50088); // establecemos el puerto de escucha
+	serv_adr.sin_port = htons(50089); // establecemos el puerto de escucha
 	
 	if (bind(sock_listen, (struct sockaddr *) &serv_adr, sizeof(serv_adr)) < 0)
 		printf ("Error al bind\n");

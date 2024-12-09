@@ -119,6 +119,8 @@ namespace WindowsFormsApplication1
             //Enviamos consulta al servidor 
             byte[] msg = Encoding.ASCII.GetBytes(mensaje);
             server.Send(msg);
+
+            button_Desconectar_Click(sender, e);
         }
 
         private void Update_Respuesta_Lbl(string respuesta)

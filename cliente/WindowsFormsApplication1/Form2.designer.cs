@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.Resolution_Box = new System.Windows.Forms.ComboBox();
             this.button_Dados = new System.Windows.Forms.Button();
             this.Resultado = new System.Windows.Forms.TextBox();
@@ -57,18 +58,20 @@
             "500x500",
             "400x400",
             "300x300"});
-            this.Resolution_Box.Location = new System.Drawing.Point(52, 388);
+            this.Resolution_Box.Location = new System.Drawing.Point(69, 478);
+            this.Resolution_Box.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Resolution_Box.Name = "Resolution_Box";
-            this.Resolution_Box.Size = new System.Drawing.Size(115, 21);
+            this.Resolution_Box.Size = new System.Drawing.Size(152, 24);
             this.Resolution_Box.TabIndex = 28;
             this.Resolution_Box.Tag = "";
             this.Resolution_Box.SelectedIndexChanged += new System.EventHandler(this.Resolution_Box_SelectedIndexChanged);
             // 
             // button_Dados
             // 
-            this.button_Dados.Location = new System.Drawing.Point(52, 53);
+            this.button_Dados.Location = new System.Drawing.Point(69, 65);
+            this.button_Dados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_Dados.Name = "button_Dados";
-            this.button_Dados.Size = new System.Drawing.Size(115, 34);
+            this.button_Dados.Size = new System.Drawing.Size(153, 42);
             this.button_Dados.TabIndex = 18;
             this.button_Dados.Text = "Tirar los dados";
             this.button_Dados.UseVisualStyleBackColor = true;
@@ -77,39 +80,40 @@
             // Resultado
             // 
             this.Resultado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Resultado.Location = new System.Drawing.Point(69, 104);
-            this.Resultado.Margin = new System.Windows.Forms.Padding(2);
+            this.Resultado.Location = new System.Drawing.Point(92, 128);
+            this.Resultado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Resultado.Name = "Resultado";
             this.Resultado.ReadOnly = true;
-            this.Resultado.Size = new System.Drawing.Size(23, 20);
+            this.Resultado.Size = new System.Drawing.Size(30, 22);
             this.Resultado.TabIndex = 20;
             // 
             // Resultado2
             // 
             this.Resultado2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Resultado2.Location = new System.Drawing.Point(109, 104);
-            this.Resultado2.Margin = new System.Windows.Forms.Padding(2);
+            this.Resultado2.Location = new System.Drawing.Point(145, 128);
+            this.Resultado2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Resultado2.Name = "Resultado2";
             this.Resultado2.ReadOnly = true;
-            this.Resultado2.Size = new System.Drawing.Size(23, 20);
+            this.Resultado2.Size = new System.Drawing.Size(30, 22);
             this.Resultado2.TabIndex = 21;
             // 
             // SumaResultado
             // 
             this.SumaResultado.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SumaResultado.Location = new System.Drawing.Point(84, 141);
-            this.SumaResultado.Margin = new System.Windows.Forms.Padding(2);
+            this.SumaResultado.Location = new System.Drawing.Point(112, 174);
+            this.SumaResultado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SumaResultado.Name = "SumaResultado";
             this.SumaResultado.ReadOnly = true;
-            this.SumaResultado.Size = new System.Drawing.Size(40, 13);
+            this.SumaResultado.Size = new System.Drawing.Size(53, 15);
             this.SumaResultado.TabIndex = 22;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Location = new System.Drawing.Point(464, 11);
+            this.panel1.Location = new System.Drawing.Point(619, 14);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 1000);
+            this.panel1.Size = new System.Drawing.Size(1333, 1231);
             this.panel1.TabIndex = 23;
             // 
             // radioButton1
@@ -117,9 +121,10 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
             this.radioButton1.Enabled = false;
-            this.radioButton1.Location = new System.Drawing.Point(69, 215);
+            this.radioButton1.Location = new System.Drawing.Point(92, 265);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(72, 17);
+            this.radioButton1.Size = new System.Drawing.Size(88, 20);
             this.radioButton1.TabIndex = 24;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Jugador 1";
@@ -129,9 +134,10 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Enabled = false;
-            this.radioButton2.Location = new System.Drawing.Point(69, 238);
+            this.radioButton2.Location = new System.Drawing.Point(92, 293);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(72, 17);
+            this.radioButton2.Size = new System.Drawing.Size(88, 20);
             this.radioButton2.TabIndex = 25;
             this.radioButton2.Text = "Jugador 2";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -140,9 +146,10 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Enabled = false;
-            this.radioButton3.Location = new System.Drawing.Point(69, 261);
+            this.radioButton3.Location = new System.Drawing.Point(92, 321);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(72, 17);
+            this.radioButton3.Size = new System.Drawing.Size(88, 20);
             this.radioButton3.TabIndex = 26;
             this.radioButton3.Text = "Jugador 3";
             this.radioButton3.UseVisualStyleBackColor = true;
@@ -151,9 +158,10 @@
             // 
             this.radioButton4.AutoSize = true;
             this.radioButton4.Enabled = false;
-            this.radioButton4.Location = new System.Drawing.Point(69, 284);
+            this.radioButton4.Location = new System.Drawing.Point(92, 350);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(72, 17);
+            this.radioButton4.Size = new System.Drawing.Size(88, 20);
             this.radioButton4.TabIndex = 27;
             this.radioButton4.Text = "Jugador 4";
             this.radioButton4.UseVisualStyleBackColor = true;
@@ -161,27 +169,29 @@
             // Resolution_Lbl
             // 
             this.Resolution_Lbl.AutoSize = true;
-            this.Resolution_Lbl.Location = new System.Drawing.Point(49, 372);
+            this.Resolution_Lbl.Location = new System.Drawing.Point(65, 458);
+            this.Resolution_Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Resolution_Lbl.Name = "Resolution_Lbl";
-            this.Resolution_Lbl.Size = new System.Drawing.Size(60, 13);
+            this.Resolution_Lbl.Size = new System.Drawing.Size(74, 16);
             this.Resolution_Lbl.TabIndex = 29;
             this.Resolution_Lbl.Text = "Resolution:";
             // 
             // Resultado_Lbl
             // 
             this.Resultado_Lbl.AutoSize = true;
-            this.Resultado_Lbl.Location = new System.Drawing.Point(21, 141);
+            this.Resultado_Lbl.Location = new System.Drawing.Point(28, 174);
+            this.Resultado_Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Resultado_Lbl.Name = "Resultado_Lbl";
-            this.Resultado_Lbl.Size = new System.Drawing.Size(58, 13);
+            this.Resultado_Lbl.Size = new System.Drawing.Size(72, 16);
             this.Resultado_Lbl.TabIndex = 30;
             this.Resultado_Lbl.Text = "Resultado:";
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1484, 1021);
+            this.ClientSize = new System.Drawing.Size(1924, 1175);
             this.Controls.Add(this.Resultado_Lbl);
             this.Controls.Add(this.Resolution_Lbl);
             this.Controls.Add(this.Resolution_Box);
@@ -194,7 +204,8 @@
             this.Controls.Add(this.Resultado);
             this.Controls.Add(this.button_Dados);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
             this.Text = "Form2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
