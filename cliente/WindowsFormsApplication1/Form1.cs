@@ -71,7 +71,7 @@ namespace WindowsFormsApplication1
 
 
             // Nos desconectamos
-            this.BackColor = Color.Gray;
+            this.BackColor = Color.IndianRed;
             MessageBox.Show("Desconectado");
             server.Shutdown(SocketShutdown.Both);
             server.Close();

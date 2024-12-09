@@ -240,3 +240,15 @@ C:\Users\polpo\Downloads\Grup_T8_SO-3-dev\cliente\WindowsFormsApplication1\obj\D
 C:\Users\polpo\Downloads\Grup_T8_SO-3-dev\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.CoreCompileInputs.cache
 C:\Users\polpo\Downloads\Grup_T8_SO-3-dev\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\polpo\Downloads\Grup_T8_SO-3-dev\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\SO\share\Git\Grup_T8_SO\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\SO\share\Git\Grup_T8_SO\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\SO\share\Git\Grup_T8_SO\cliente\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\SO\share\Git\Grup_T8_SO\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.AssemblyReference.cache
+C:\SO\share\Git\Grup_T8_SO\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\SO\share\Git\Grup_T8_SO\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form2.resources
+C:\SO\share\Git\Grup_T8_SO\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form3.resources
+C:\SO\share\Git\Grup_T8_SO\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\SO\share\Git\Grup_T8_SO\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.GenerateResource.cache
+C:\SO\share\Git\Grup_T8_SO\cliente\WindowsFormsApplication1\obj\Debug\clienteForm.csproj.CoreCompileInputs.cache
+C:\SO\share\Git\Grup_T8_SO\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\SO\share\Git\Grup_T8_SO\cliente\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb

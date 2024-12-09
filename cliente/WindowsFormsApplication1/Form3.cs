@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.Drawing.Text;
 
 namespace WindowsFormsApplication1
 {
@@ -15,17 +16,17 @@ namespace WindowsFormsApplication1
     {
         Socket server;
         string mensaje;
-
+       
         public Form3()
         {
             InitializeComponent();
-        }
+    }
 
         private void button_LogIn_Click(object sender, EventArgs e)
         {
             ////Creamos un IPEndPoint con el ip del servidor y puerto del servidor al que deseamos conectarnos
             IPAddress direc = IPAddress.Parse("10.4.119.5");
-            IPEndPoint ipep = new IPEndPoint(direc, 50088);
+            IPEndPoint ipep = new IPEndPoint(direc, 50089);
 
 
             //Creamos el socket 
@@ -33,7 +34,7 @@ namespace WindowsFormsApplication1
             try
             {
                 server.Connect(ipep);//Intentamos conectar el socket
-                BackColor = Color.Green;
+                BackColor = Color.PaleGreen;
             }
             catch (SocketException)
             {
@@ -94,7 +95,7 @@ namespace WindowsFormsApplication1
             byte[] msg;
             ////Creamos un IPEndPoint con el ip del servidor y puerto del servidor al que deseamos conectarnos
             IPAddress direc = IPAddress.Parse("10.4.119.5");
-            IPEndPoint ipep = new IPEndPoint(direc, 50088);
+            IPEndPoint ipep = new IPEndPoint(direc, 50089);
 
 
             //Creamos el socket 
@@ -161,5 +162,7 @@ namespace WindowsFormsApplication1
             server.Shutdown(SocketShutdown.Both);
             server.Close();
         }
+
+       
     }
 }
