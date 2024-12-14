@@ -46,52 +46,31 @@
             // label1
             // 
             this.label1.AutoSize = true;
-<<<<<<< HEAD
             this.label1.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(192, 304);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(278, 18);
-=======
-            this.label1.Location = new System.Drawing.Point(231, 250);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 16);
->>>>>>> b06640767190d45b5f33aadbc6274bb04ae28d24
             this.label1.TabIndex = 38;
             this.label1.Text = "Confirmación de contraseña:";
             // 
             // password_conf
             // 
-<<<<<<< HEAD
             this.password_conf.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password_conf.Location = new System.Drawing.Point(495, 301);
             this.password_conf.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.password_conf.Name = "password_conf";
             this.password_conf.Size = new System.Drawing.Size(188, 26);
-=======
-            this.password_conf.Location = new System.Drawing.Point(443, 247);
-            this.password_conf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.password_conf.Name = "password_conf";
-            this.password_conf.Size = new System.Drawing.Size(168, 22);
->>>>>>> b06640767190d45b5f33aadbc6274bb04ae28d24
             this.password_conf.TabIndex = 37;
             // 
             // button_Registro
             // 
-<<<<<<< HEAD
             this.button_Registro.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button_Registro.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Registro.Location = new System.Drawing.Point(736, 275);
             this.button_Registro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_Registro.Name = "button_Registro";
             this.button_Registro.Size = new System.Drawing.Size(144, 52);
-=======
-            this.button_Registro.Location = new System.Drawing.Point(728, 229);
-            this.button_Registro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button_Registro.Name = "button_Registro";
-            this.button_Registro.Size = new System.Drawing.Size(128, 42);
->>>>>>> b06640767190d45b5f33aadbc6274bb04ae28d24
             this.button_Registro.TabIndex = 36;
             this.button_Registro.Text = "Registrarse";
             this.button_Registro.UseVisualStyleBackColor = false;
@@ -99,7 +78,6 @@
             // 
             // button_LogIn
             // 
-<<<<<<< HEAD
             this.button_LogIn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button_LogIn.CausesValidation = false;
             this.button_LogIn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
@@ -110,12 +88,6 @@
             this.button_LogIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_LogIn.Name = "button_LogIn";
             this.button_LogIn.Size = new System.Drawing.Size(144, 52);
-=======
-            this.button_LogIn.Location = new System.Drawing.Point(728, 175);
-            this.button_LogIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button_LogIn.Name = "button_LogIn";
-            this.button_LogIn.Size = new System.Drawing.Size(128, 42);
->>>>>>> b06640767190d45b5f33aadbc6274bb04ae28d24
             this.button_LogIn.TabIndex = 35;
             this.button_LogIn.Text = "Log In";
             this.button_LogIn.UseVisualStyleBackColor = false;
@@ -124,86 +96,51 @@
             // label3
             // 
             this.label3.AutoSize = true;
-<<<<<<< HEAD
             this.label3.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(352, 255);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 18);
-=======
-            this.label3.Location = new System.Drawing.Point(312, 212);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 16);
->>>>>>> b06640767190d45b5f33aadbc6274bb04ae28d24
             this.label3.TabIndex = 34;
             this.label3.Text = "Contraseña:";
             // 
             // Nick
             // 
             this.Nick.AutoSize = true;
-<<<<<<< HEAD
             this.Nick.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Nick.Location = new System.Drawing.Point(282, 204);
             this.Nick.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Nick.Name = "Nick";
             this.Nick.Size = new System.Drawing.Size(188, 18);
-=======
-            this.Nick.Location = new System.Drawing.Point(279, 170);
-            this.Nick.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Nick.Name = "Nick";
-            this.Nick.Size = new System.Drawing.Size(113, 16);
->>>>>>> b06640767190d45b5f33aadbc6274bb04ae28d24
             this.Nick.TabIndex = 33;
             this.Nick.Text = "Nombre de usuario:";
             // 
             // password
             // 
-<<<<<<< HEAD
             this.password.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password.Location = new System.Drawing.Point(495, 252);
             this.password.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(189, 26);
-=======
-            this.password.Location = new System.Drawing.Point(444, 208);
-            this.password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(167, 22);
->>>>>>> b06640767190d45b5f33aadbc6274bb04ae28d24
             this.password.TabIndex = 32;
             // 
             // nickname
             // 
-<<<<<<< HEAD
             this.nickname.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nickname.Location = new System.Drawing.Point(495, 204);
             this.nickname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nickname.Name = "nickname";
             this.nickname.Size = new System.Drawing.Size(188, 26);
-=======
-            this.nickname.Location = new System.Drawing.Point(443, 167);
-            this.nickname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.nickname.Name = "nickname";
-            this.nickname.Size = new System.Drawing.Size(168, 22);
->>>>>>> b06640767190d45b5f33aadbc6274bb04ae28d24
             this.nickname.TabIndex = 31;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-<<<<<<< HEAD
             this.label4.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(192, 324);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(278, 18);
-=======
-            this.label4.Location = new System.Drawing.Point(255, 266);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 16);
->>>>>>> b06640767190d45b5f33aadbc6274bb04ae28d24
             this.label4.TabIndex = 39;
             this.label4.Text = "(solo para nuevos usuarios)";
             // 
@@ -233,7 +170,6 @@
             // 
             // Form3
             // 
-<<<<<<< HEAD
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
@@ -242,11 +178,6 @@
             this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
-=======
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
->>>>>>> b06640767190d45b5f33aadbc6274bb04ae28d24
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.password_conf);
@@ -256,12 +187,7 @@
             this.Controls.Add(this.Nick);
             this.Controls.Add(this.password);
             this.Controls.Add(this.nickname);
-<<<<<<< HEAD
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-=======
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> b06640767190d45b5f33aadbc6274bb04ae28d24
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bienvenido al juego de la oca";
