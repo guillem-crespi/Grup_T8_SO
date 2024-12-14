@@ -157,59 +157,67 @@ int LogIn(char p[200], char respuesta[20])
 	strcpy(contra, p);
 	
 	printf("Solicitud de inicio de sesi�n recibida: Usuario: %s Contrase�a: %s \n", nombre_usuario, contra);
+
+	//Primero miramos ya hay un usuario con el mismo nombre conectado
+	int resp = DamePosicionNombre(nombre_usuario);
+
+	if (resp != -1) {
+		printf("Jugador ya conectado\n");
+		strcpy(respuesta, "1/ALREADY_IN");
+	} else {
+		// Consultamos si el usuario existe 
+		char consulta_usuario[512];
+		sprintf(consulta_usuario, "SELECT nombre_usuario FROM jugadores WHERE nombre_usuario = '%s'", nombre_usuario);
 	
-	// Primero, consultamos si el usuario existe 
-	char consulta_usuario[512];
-	sprintf(consulta_usuario, "SELECT nombre_usuario FROM jugadores WHERE nombre_usuario = '%s'", nombre_usuario);
-	
-	err = mysql_query(conn, consulta_usuario);
-	if (err != 0) {
-		printf("Error al consultar datos de la base %u %s\n", mysql_errno(conn), mysql_error(conn));
-		strcpy(respuesta, "1/ERROR_DB");
-		exit(1);
-	}
-	
-	// Almacenamos y verificamos el resultado
-	resultado = mysql_store_result(conn);
-	row = mysql_fetch_row(resultado);
-	
-	
-	if (row == NULL) {
-		// No se encontro el usuario
-		printf("El usuario '%s' no existe.\n", nombre_usuario);
-		strcpy(respuesta, "1/NO_USER");
-	}
-	else 
-	{
-		// Si el usuario existe, verificamos la contrase�a
-		char consulta_contra[512];
-		sprintf(consulta_contra, "SELECT nombre_usuario FROM jugadores WHERE nombre_usuario = '%s' AND password = '%s'", nombre_usuario, contra);
-		
-		err = mysql_query(conn, consulta_contra);
+		err = mysql_query(conn, consulta_usuario);
 		if (err != 0) {
 			printf("Error al consultar datos de la base %u %s\n", mysql_errno(conn), mysql_error(conn));
 			strcpy(respuesta, "1/ERROR_DB");
 			exit(1);
 		}
-		
-		// Verificamos si hay resultados
+	
+		// Almacenamos y verificamos el resultado
 		resultado = mysql_store_result(conn);
 		row = mysql_fetch_row(resultado);
-		
+	
+	
 		if (row == NULL) {
-			// El usuario existe, pero la contrase�a es incorrecta
-			strcpy(respuesta, "1/WRONG_PASSWORD");
-		} else {
-			// Usuario y contrase�a correctos
-			
-			pthread_mutex_lock( &mutex );
-			int success = PonConectado(nombre_usuario, &sockets[numSocket-1]);
-			pthread_mutex_unlock( &mutex );
-
-			if (success == 0) {
-				strcpy(respuesta, "1/LOGIN_SUCCESSFUL");
+			// No se encontro el usuario
+			printf("El usuario '%s' no existe.\n", nombre_usuario);
+			strcpy(respuesta, "1/NO_USER");
+		}
+		else 
+		{
+			// Si el usuario existe, verificamos la contrase�a
+			char consulta_contra[512];
+			sprintf(consulta_contra, "SELECT nombre_usuario FROM jugadores WHERE nombre_usuario = '%s' AND password = '%s'", nombre_usuario, contra);
+		
+			err = mysql_query(conn, consulta_contra);
+			if (err != 0) {
+				printf("Error al consultar datos de la base %u %s\n", mysql_errno(conn), mysql_error(conn));
+				strcpy(respuesta, "1/ERROR_DB");
+				exit(1);
+			}
+		
+			// Verificamos si hay resultados
+			resultado = mysql_store_result(conn);
+			row = mysql_fetch_row(resultado);
+		
+			if (row == NULL) {
+				// El usuario existe, pero la contrase�a es incorrecta
+				strcpy(respuesta, "1/WRONG_PASSWORD");
 			} else {
-				strcpy(respuesta, "1/ERROR_LIST");
+				// Usuario y contrase�a correctos
+			
+				pthread_mutex_lock( &mutex );
+				int success = PonConectado(nombre_usuario, &sockets[numSocket-1]);
+				pthread_mutex_unlock( &mutex );
+
+				if (success == 0) {
+					strcpy(respuesta, "1/LOGIN_SUCCESSFUL");
+				} else {
+					strcpy(respuesta, "1/ERROR_LIST");
+				}
 			}
 		}
 	}
@@ -253,18 +261,35 @@ void DameConectados (char conectado[300])
 
 // Devuelve la posicion en la lista o -1 si no est� en la lista
 
-int DamePosicion (int *socket){
+int DamePosicionNombre (char name[20]) {
 	
-	int i=0;
-	int encontrado=0;
-	while ((i< miLista.num) && !encontrado)
+	int i = 0;
+	int encontrado = 0;
+	while ((i < miLista.num) && encontrado == 0)
+	{
+		if (strcmp(miLista.conectados[i].nombre, name) == 0)
+			encontrado = 1;
+		if (encontrado == 0)
+			i++;
+	}
+	if (encontrado == 1)
+		return i;
+	else
+		return -1;
+}
+
+int DamePosicionSocket (int *socket) {
+	
+	int i = 0;
+	int encontrado = 0;
+	while ((i< miLista.num) && encontrado == 0)
 	{
 		if (miLista.conectados[i].socket == *socket)
 			encontrado = 1;
-		if (!encontrado)
+		if (encontrado == 0)
 			i++;
 	}
-	if (encontrado)
+	if (encontrado == 1)
 		return i;
 	else
 		return -1;

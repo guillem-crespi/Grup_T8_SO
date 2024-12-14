@@ -73,6 +73,10 @@ namespace WindowsFormsApplication1
                 {
                     MessageBox.Show("Contraseña incorrecta. Por favor, inténtalo de nuevo.");
                 }
+                else if (mensaje == "1/ALREADY_IN")
+                {
+                    MessageBox.Show("Jugador ya conectado. Prueba con otro usuario");
+                }
                 else
                 {
                     MessageBox.Show("Error desconocido. Por favor, intenta de nuevo más tarde.");
