@@ -16,12 +16,12 @@ namespace WindowsFormsApplication1
 {
     public partial class Form2 : Form
     {
-        private int sumaTotal = 0;  // Variable para almacenar la suma total de los dados
         PictureBox tablero = new PictureBox();  //Imatge del tauler
         private List<int> casillas = new List<int>();
         private List<int> casillasJugador = new List<int>();
         private List<int> posiciones = new List<int>(new int[] { 0, 0, 0, 0 });
         private int nJugador;    //Numero de jugador (1, 2, 3 o 4)
+        private string a;
         private float resolution = 1.0f;
         
         bool pozo1 = false;
@@ -34,8 +34,9 @@ namespace WindowsFormsApplication1
         int Turnos4 = 0;    //Torns de penalització pel jugador 4
 
 
-        public Form2()
+        public Form2(int nJugador)
         {
+            this.nJugador = nJugador;
             InitializeComponent();
         }
 
@@ -90,7 +91,6 @@ namespace WindowsFormsApplication1
 
             // Suma de los dos resultados
             int suma = resultado + resultado2;
-            sumaTotal += suma;
             SumaResultado.Text = suma.ToString();
 
             if (radioButton1.Checked)

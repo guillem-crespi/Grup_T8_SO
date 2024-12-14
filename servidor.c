@@ -472,10 +472,12 @@ void *AtenderCliente (void *socket)
 			char nombre2[20];
 			char nombre3[20];
 			char nombre4[20];	//Persona que convida
+			int turnos[3];
 			int numJugador;
 			int found = 0;
+
 			p = strtok(NULL, "/");
-			printf("numJugadors: %s", p);
+			printf("numJugadors: %s\n", p);
 			numJugador = atoi(p);
 			p = strtok(NULL, "/");
 			strcpy(nombre1, p);
@@ -485,9 +487,12 @@ void *AtenderCliente (void *socket)
 					p = strtok(NULL, "/");
 					strcpy(nombre4, p);
 
+					p = strtok(NULL, "/");
+					turnos[0] = atoi(p);
+
 					for (int i = 0; i < miLista.num && found == 0; i++) {
 						if (strcmp(nombre1, miLista.conectados[i].nombre) == 0) {
-							sprintf(respuesta, "6/%s", nombre4);
+							sprintf(respuesta, "6/%s/%d", nombre4, turnos[0]);
 							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
 						}
 					}
@@ -499,16 +504,22 @@ void *AtenderCliente (void *socket)
 					p = strtok(NULL, "/");
 					strcpy(nombre4, p);
 
+					p = strtok(NULL, "/");
+					turnos[0] = atoi(p);
+					p = strtok(NULL, "/");
+					turnos[1] = atoi(p);
+
+
 					for (int i = 0; i < miLista.num && found == 0; i++) {
 						if (strcmp(nombre1, miLista.conectados[i].nombre) == 0) {
-							sprintf(respuesta, "6/%s", nombre4);
+							sprintf(respuesta, "6/%s/%d", nombre4, turnos[0]);
 							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
 						}
 					}
 
 					for (int i = 0; i < miLista.num && found == 0; i++) {
 						if (strcmp(nombre2, miLista.conectados[i].nombre) == 0) {
-							sprintf(respuesta, "6/%s", nombre4);
+							sprintf(respuesta, "6/%s/%d", nombre4, turnos[1]);
 							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
 						}
 					}
@@ -523,29 +534,37 @@ void *AtenderCliente (void *socket)
 					p = strtok(NULL, "/");
 					strcpy(nombre4, p);
 
+					p = strtok(NULL, "/");
+					turnos[0] = atoi(p);
+					p = strtok(NULL, "/");
+					turnos[1] = atoi(p);
+					p = strtok(NULL, "/");
+					turnos [2] = atoi(p);
+
 					for (int i = 0; i < miLista.num && found == 0; i++) {
 						if (strcmp(nombre1, miLista.conectados[i].nombre) == 0) {
-							sprintf(respuesta, "6/%s", nombre4);
+							sprintf(respuesta, "6/%s/%d", nombre4, turnos[0]);
 							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
 						}
 					}
 
 					for (int i = 0; i < miLista.num && found == 0; i++) {
 						if (strcmp(nombre2, miLista.conectados[i].nombre) == 0) {
-							sprintf(respuesta, "6/%s", nombre4);
+							sprintf(respuesta, "6/%s/%d", nombre4, turnos[1]);
 							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
 						}
 					}
 
 					for (int i = 0; i < miLista.num && found == 0; i++) {
 						if (strcmp(nombre3, miLista.conectados[i].nombre) == 0) {
-							sprintf(respuesta, "6/%s", nombre4);
+							sprintf(respuesta, "6/%s/%d", nombre4, turnos[2]);
 							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
 						}
 					}
 
 					break;
 			}
+			printf("%s\n", respuesta);
 		}
 		/////////////////////////////////////////////////////////////////	
 		else if (codigo == 7) // CONSULTA 7 : CHAT
@@ -561,6 +580,99 @@ void *AtenderCliente (void *socket)
 			printf("%s\n", respuesta);
 			for (int i = 0; i < numSocket; i++) {
 				write(sockets[i], respuesta, strlen(respuesta));
+			}
+		}
+
+		/////////////////////////////////////////////////////////////////	
+		else if (codigo == 8) // CONSULTA 8 : ACEPTAR/CANCELAR INVITACION
+		{
+			char res[10];
+			char nom[20];
+			char convidat[20];
+
+			p = strtok(NULL, "/");
+			strcpy(res, p);
+
+			p = strtok(NULL, "/");
+			strcpy(nom, p);
+
+			p = strtok(NULL, "/");
+			strcpy(convidat, p);
+
+			int resp = DamePosicionNombre(nom);	//Busquem el socket de la persona que convida per dir-li si hem acceptat o no
+
+			if (strcmp(res, "OK") == 0) {
+				sprintf(respuesta, "8/OK/%s", convidat);
+			}
+			else {
+				sprintf(respuesta, "8/NO/%s", convidat);
+			}
+
+			printf("%s\n", respuesta);
+			write(miLista.conectados[resp].socket, respuesta, strlen(respuesta));
+		}
+
+		/////////////////////////////////////////////////////////////////	
+		else if (codigo == 9) // CONSULTA 9 : EMPEZAR EL JUEGO
+		{
+			int nJugadores;
+			int found = 0;
+			char J1[20];
+			char J2[20];
+			char J3[20];
+			char J4[20];
+			int j = 0;
+
+			p = strtok(NULL, "/");
+			nJugadores = atoi(p);
+
+			sprintf(respuesta, "9/%d", nJugadores);
+
+			for (int i = 0; i < nJugadores; i++) {
+				p = strtok(NULL, "/");
+				sprintf(respuesta, "%s/%s", respuesta, p);
+				j++;
+
+				switch (j) {
+					case 1:
+						strcpy(J1, p);
+						break;
+
+					case 2:
+						strcpy(J2, p);
+						break;
+
+					case 3:
+						strcpy(J3, p);
+						break;
+
+					case 4:
+						strcpy(J4, p);
+						break;
+				}
+			}
+
+			printf("%s\n", respuesta);
+
+			for (int i = 0; i < miLista.num; i++) {
+				if (strcmp(miLista.conectados[i].nombre, J1) == 0) {
+					write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
+				}
+				else if (strcmp(miLista.conectados[i].nombre, J2) == 0) {
+					write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
+					if (nJugadores == 2) {
+					}
+				}
+				else if (nJugadores > 2) {
+					if (strcmp(miLista.conectados[i].nombre, J3) == 0) {
+						write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
+					}
+					else if (nJugadores > 3) {
+						if (strcmp(miLista.conectados[i].nombre, J4) == 0) {
+							write(miLista.conectados[i].socket, respuesta, strlen(respuesta));
+						}
+					}
+				}
 			}
 		}
 		

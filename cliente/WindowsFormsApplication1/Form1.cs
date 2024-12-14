@@ -17,8 +17,11 @@ namespace WindowsFormsApplication1
     {
         Socket server;
         Thread atender;
-        string nickname;
-        string password;
+        private string nickname;
+        private string password;
+
+        private List<string> invitados = new List<string>(4);
+        private int nJugador = 0;
 
         delegate void DelegadoParaEscribir(string mensaje);
 
@@ -109,7 +112,7 @@ namespace WindowsFormsApplication1
 
         private void button_MatrizJuego_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
+            Form2 f2 = new Form2(nJugador);
             f2.ShowDialog();
         }
 
@@ -187,9 +190,26 @@ namespace WindowsFormsApplication1
                         break;
 
                     case 6:
-                        mensaje = trozos[1];
+                        DialogResult result = MessageBox.Show(
+                            trozos[1] + " te ha invitado a jugar. Eres el jugador " + trozos[2],
+                            "OK",
+                            MessageBoxButtons.OKCancel,
+                            MessageBoxIcon.Question);
 
-                        MessageBox.Show(mensaje + " te ha invitado a jugar");
+                        if (result == DialogResult.OK)
+                        {
+                            nJugador = Convert.ToInt32(trozos[2]);
+
+                            mensaje = $"8/OK/{trozos[1]}/{nickname}";
+                            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                            server.Send(msg);
+                        }
+                        else if (result == DialogResult.Cancel)
+                        {
+                            mensaje = $"8/NO/{trozos[1]}/{nickname}";
+                            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                            server.Send(msg);
+                        }
 
                         break;
 
@@ -199,6 +219,88 @@ namespace WindowsFormsApplication1
                             ChatTable.Rows.Add(trozos[1], trozos[2]);
                             ChatTable.ClearSelection();
                         }));
+
+                        break;
+
+                    case 8:
+                        int nInvitados = Convert.ToInt32(invitados[4]);
+                        string players = "";
+                        if (trozos[1] == "OK")
+                        {
+                            if ((nInvitados + 1) == 4)
+                            {
+                                MessageBox.Show("Todos los invitados han decidido");
+
+                                invitados[4] = "4";
+                                mensaje = "9/";
+                                int nJugadores = 0;
+
+                                for (int i = 0; i <= 3; i++)
+                                {
+                                    if (invitados[i] != "NO")
+                                    {
+                                        players += "/" + invitados[i];
+                                        nJugadores++;
+                                    }
+                                }
+
+                                mensaje += Convert.ToString(nJugadores) + players;
+                                byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                                server.Send(msg);
+                            }
+                            else
+                            {
+                                invitados[4] = Convert.ToString(nInvitados + 1);
+                            }
+                        }
+                        else
+                        {
+                            for (int i = 0; i < 4; i++)
+                            {
+                                if (trozos[2] == invitados[i])
+                                {
+                                    invitados[i] = "NO";
+                                }
+                            }
+
+                            if ((nInvitados + 1) == 4)
+                            {
+                                MessageBox.Show("Todos los invitados han decidido");
+
+                                invitados[4] = "4";
+                                mensaje = "9/";
+                                int nJugadores = 0;
+
+                                for (int i = 0; i <= 3; i++)
+                                {
+                                    if (invitados[i] != "NO")
+                                    {
+                                        mensaje += invitados[i] + "/";
+                                        nJugadores++;
+                                    }
+                                }
+
+                                if (nJugadores > 1)
+                                {
+                                    mensaje += Convert.ToString(nJugadores);
+                                    byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+                                    server.Send(msg);
+                                }
+
+                                else
+                                    MessageBox.Show("Todos han rechazado tu invitacion :(\n No puedes jugar solo :(((");
+                            }
+                            else
+                            {
+                                invitados[4] = Convert.ToString(nInvitados + 1);
+                            }
+                        }
+
+                        break;
+
+                    case 9:
+                        Form2 f = new Form2(nJugador);
+                        f.ShowDialog();
 
                         break;
 
@@ -253,21 +355,27 @@ namespace WindowsFormsApplication1
 //Invitar
         private void button1_Click(object sender, EventArgs e)
         {
-            int invitados = 0;
+            invitados = new List<string> { "", "", "", "", "" };
+
+            int nInvitados = 0;
             string dest = "";
             string dest2 = "";
             string dest3 = "";
             string reg;
+            int res1 = 0;
+            int res2 = 0;
+            int res3 = 0;
+            int res4 = 0;
 
             foreach (DataGridViewRow row in ListaConectados.Rows)
             {
                 if (row.Cells["Seleccionar"].Value != null && Convert.ToBoolean(row.Cells["Seleccionar"].Value))
                 {
-                    invitados++;
+                    nInvitados++;
                 }
             }
 
-            if (invitados > 3)
+            if (nInvitados > 3)
             {
                 MessageBox.Show("Máximo 3 invitaciones");
                 return;
@@ -306,13 +414,96 @@ namespace WindowsFormsApplication1
                 }
             }
 
-            if (invitados == 1)
-                reg = $"6/{invitados}/{dest}/{nickname}";
-            else if (invitados == 2)
-                reg = $"6/{invitados}/{dest}/{dest2}/{nickname}";
-            else if (invitados == 3)
-                reg = $"6/{invitados}/{dest}/{dest2}/{dest3}/{nickname}";
-            else {
+            Random random = new Random();
+
+            if (nInvitados == 1)
+            {
+                res1 = random.Next(1, 3);
+                res2 = random.Next(1, 3);
+
+                while (res2 == res1)    //Comprovació que els jugadors tinguin el mateix número
+                    res2 = random.Next(1, 3);
+
+                reg = $"6/{nInvitados}/{dest}/{nickname}/{res2}";
+
+                invitados[res1 - 1] = nickname;
+                invitados[res2 - 1] = dest;
+
+                for (int i = 1; i <= 4; i++)
+                {
+                    if (i != res1 && i != res2)
+                    {
+                        res3 = i;
+                        invitados[i - 1] = "NO";
+                    }
+                }
+                for (int i = 1; i <= 4; i++)
+                {
+                    if (i != res1 && i != res2 && i != res3)
+                    {
+                        res4 = i;
+                        invitados[i - 1] = "NO";
+                    }
+                }
+
+                invitados[4] = "3"; //Amb aquest número sabem quanta gent falta per acceptar la invitació (3 de 4 jugadors perquè falta 1 (el dest) per acceptar)
+            }
+            else if (nInvitados == 2)
+            {
+                res1 = random.Next(1, 4);
+                res2 = random.Next(1, 4);
+                res3 = random.Next(1, 4);
+
+                while (res2 == res1)
+                    res2 = random.Next(1, 4);
+
+                while (res3 == res1 || res3 == res2)
+                    res3 = random.Next(1, 4);
+
+                reg = $"6/{nInvitados}/{dest}/{dest2}/{nickname}/{res2}/{res3}";
+
+                invitados[res1 - 1] = nickname;
+                invitados[res2 - 1] = dest;
+                invitados[res3 - 1] = dest2;
+
+                for (int i = 1; i <= 4; i++)
+                {
+                    if (i != res1 && i != res2 && i != res3)
+                    {
+                        res4 = i;
+                        invitados[i - 1] = "NO";
+                    }
+                }
+
+                invitados[4] = "2";
+            }
+            else if (nInvitados == 3)
+            {
+                res1 = random.Next(1, 5);
+                res2 = random.Next(1, 5);
+                res3 = random.Next(1, 5);
+                res4 = random.Next(1, 5);
+
+                while (res2 == res1)
+                    res2 = random.Next(1, 5);
+
+                while (res3 == res1 || res3 == res2)
+                    res3 = random.Next(1, 5);
+
+                while (res4 == res1 || res4 == res2 || res4 == res3)
+                    res4 = random.Next(1, 5);
+
+                reg = $"6/{nInvitados}/{dest}/{dest2}/{dest3}/{nickname}/{res2}/{res3}/{res4}";
+
+                invitados[res1 - 1] = nickname;
+                invitados[res2 - 1] = dest;
+                invitados[res3 - 1] = dest2;
+                invitados[res4 - 1] = dest3;
+
+                invitados[4] = "1";
+            }
+            else
+            {
                 reg = "Error en el proceso";
                 return;
             }
